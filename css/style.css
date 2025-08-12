@@ -1742,7 +1742,9 @@ section[id] {
     }
     
     .navbar {
-        padding: 1rem;
+        padding: 0.75rem 1rem;
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(10px);
     }
     
     .nav-menu {
@@ -1751,24 +1753,86 @@ section[id] {
         left: -100%;
         width: 100%;
         height: 100vh;
-        background: var(--dark);
+        background: rgba(0, 0, 0, 0.98);
         flex-direction: column;
         justify-content: center;
         align-items: center;
         transition: var(--transition);
-        gap: 2rem;
+        gap: 1.5rem;
         z-index: 1200;
-        padding-top: 80px;
+        padding-top: 60px;
     }
     
     .nav-menu.active {
         left: 0;
+    }
+
+    .nav-link {
+        font-size: 1.1rem;
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        text-align: center;
+        width: 100%;
+        max-width: 200px;
+    }
+
+    .nav-link:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateY(-2px);
     }
     
     .nav-toggle {
         display: flex;
         position: relative;
         z-index: 1300;
+        width: 28px;
+        height: 28px;
+        padding: 0;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+    }
+
+    .nav-toggle span {
+        width: 100%;
+        height: 2px;
+        background: var(--accent);
+        transition: all 0.3s ease;
+        position: relative;
+    }
+
+    .nav-toggle span::before,
+    .nav-toggle span::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background: var(--accent);
+        transition: all 0.3s ease;
+    }
+
+    .nav-toggle span::before {
+        top: -8px;
+    }
+
+    .nav-toggle span::after {
+        bottom: -8px;
+    }
+
+    /* Hamburger animation when menu is open */
+    .nav-toggle.active span {
+        background: transparent;
+    }
+
+    .nav-toggle.active span::before {
+        transform: rotate(45deg);
+        top: 0;
+    }
+
+    .nav-toggle.active span::after {
+        transform: rotate(-45deg);
+        bottom: 0;
     }
     
     .hero-cta {
@@ -1932,6 +1996,30 @@ section[id] {
 }
 
 @media (max-width: 480px) {
+    .navbar {
+        padding: 0.5rem 0.75rem;
+    }
+
+    .navbar-brand {
+        font-size: 1rem;
+    }
+
+    .navbar-brand img {
+        width: 24px;
+        height: 24px;
+    }
+
+    .nav-menu {
+        padding-top: 50px;
+        gap: 1.25rem;
+    }
+
+    .nav-link {
+        font-size: 1rem;
+        padding: 0.6rem 1.2rem;
+        max-width: 180px;
+    }
+
     .hero-title {
         font-size: 2.5rem;
     }
