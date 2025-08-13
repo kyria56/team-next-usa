@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initNavigation();
     initScrollEffects();
     initAnimations();
+    initEventSelection();
     initForms();
     initParticles();
     initSmoothScrolling();
@@ -241,6 +242,50 @@ function triggerEntranceAnimations() {
         setTimeout(() => {
             el.classList.add('animate');
         }, index * 100);
+    });
+}
+
+// ===== EVENT SELECTION =====
+function initEventSelection() {
+    const eventCards = document.querySelectorAll('.event-card');
+    const eventOptions = document.querySelectorAll('.event-option input[type="radio"]');
+    
+    // Handle event card selection
+    eventCards.forEach(card => {
+        const selectBtn = card.querySelector('.select-event');
+        const eventId = card.dataset.event;
+        
+        selectBtn.addEventListener('click', () => {
+            // Scroll to registration section
+            const registrationSection = document.getElementById('registration');
+            registrationSection.scrollIntoView({ behavior: 'smooth' });
+            
+            // Select the corresponding radio button
+            const radioBtn = document.getElementById(eventId);
+            if (radioBtn) {
+                radioBtn.checked = true;
+                // Trigger change event to update styling
+                radioBtn.dispatchEvent(new Event('change'));
+            }
+        });
+    });
+    
+    // Handle radio button selection
+    eventOptions.forEach(radio => {
+        radio.addEventListener('change', () => {
+            // Update visual feedback
+            eventOptions.forEach(r => {
+                const label = r.nextElementSibling;
+                if (label) {
+                    label.classList.remove('selected');
+                }
+            });
+            
+            const selectedLabel = radio.nextElementSibling;
+            if (selectedLabel) {
+                selectedLabel.classList.add('selected');
+            }
+        });
     });
 }
 
