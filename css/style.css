@@ -275,18 +275,100 @@ section[id] {
     animation: fadeInUp 1s ease-out;
 }
 
-.hero-badge {
-    display: inline-block;
-    background: var(--gradient-primary);
-    color: var(--white);
-    padding: 0.75rem 2rem;
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 0.9rem;
-    letter-spacing: 2px;
+.hero-logo {
     margin-bottom: 2rem;
-    box-shadow: var(--shadow-glow);
-    animation: slideInDown 1s ease-out 0.3s both;
+    animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+.hero-logo-img {
+    width: 120px;
+    height: auto;
+    filter: drop-shadow(0 8px 32px rgba(0, 180, 216, 0.3));
+}
+
+.mission-statement {
+    margin-bottom: 3rem;
+    animation: fadeInUp 1s ease-out 0.6s both;
+    text-align: center;
+}
+
+.mission-header h3 {
+    font-size: 2rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.mission-header p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 2rem;
+    opacity: 0.8;
+}
+
+.mission-content p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--text-light);
+    max-width: 700px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sponsorship-criteria {
+    margin-bottom: 3rem;
+    animation: fadeInUp 1s ease-out 0.9s both;
+    text-align: center;
+}
+
+.criteria-header h3 {
+    font-size: 1.8rem;
+    color: var(--white);
+    margin-bottom: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.criteria-header p {
+    font-size: 1rem;
+    color: var(--text-light);
+    margin-bottom: 2rem;
+    opacity: 0.8;
+}
+
+.criteria-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.criteria-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.criteria-list li {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border-left: 4px solid var(--accent);
+    color: var(--text-light);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    text-align: left;
+    backdrop-filter: blur(10px);
+}
+
+.criteria-list li:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .hero-title {
@@ -920,6 +1002,23 @@ section[id] {
     line-height: 1.5;
 }
 
+.location-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.location-item {
+    color: var(--text-light);
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+.location-item strong {
+    color: var(--accent);
+    font-weight: 600;
+}
+
 .approach-visual {
     display: flex;
     justify-content: center;
@@ -1019,107 +1118,163 @@ section[id] {
     50% { transform: scale(1.05); }
 }
 
-/* ===== SCHEDULE SECTION ===== */
+/* ===== EVENTS SECTION ===== */
 .schedule-section {
     padding: 8rem 0;
     background: var(--dark);
 }
 
-.event-details {
-    max-width: 1000px;
-    margin: 0 auto;
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
 }
 
-.event-hero {
-    background: var(--dark-lighter);
-    border-radius: var(--border-radius-xl);
-    padding: 3rem;
-    margin-bottom: 4rem;
+.event-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s ease;
     border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.event-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border-color: var(--accent);
+}
+
+.event-poster {
     position: relative;
     overflow: hidden;
+    height: 400px;
 }
 
-.event-hero::before {
-    content: '';
+.poster-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.event-card:hover .poster-image {
+    transform: scale(1.05);
+}
+
+.event-overlay {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(0, 180, 216, 0.05) 0%, rgba(255, 107, 53, 0.05) 100%);
-}
-
-.event-info {
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.3) 0%,
+        rgba(0, 0, 0, 0.7) 100%
+    );
     display: flex;
-    align-items: center;
-    gap: 3rem;
-    position: relative;
-    z-index: 2;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.5rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-.event-date {
-    flex-shrink: 0;
+.event-card:hover .event-overlay {
+    opacity: 1;
 }
 
-.date-badge {
-    background: var(--gradient-primary);
-    border-radius: var(--border-radius-lg);
-    padding: 2rem;
-    text-align: center;
+.event-date-badge {
+    background: var(--accent);
     color: var(--white);
-    box-shadow: var(--shadow-glow);
-    min-width: 120px;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    align-self: flex-start;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(0, 180, 216, 0.3);
 }
 
-.date-badge .day {
+.event-date-badge .day {
     display: block;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 2.5rem;
-    font-weight: 700;
+    font-size: 1.5rem;
     line-height: 1;
 }
 
-.date-badge .month {
+.event-date-badge .month,
+.event-date-badge .year {
     display: block;
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 2px;
-    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    opacity: 0.9;
 }
 
-.date-badge .year {
-    display: block;
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-top: 0.25rem;
-}
-
-.event-details-content h3 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 2rem;
-    color: var(--primary);
+.event-info h3 {
+    color: var(--white);
+    font-size: 1.3rem;
     margin-bottom: 0.5rem;
+    font-weight: 600;
 }
 
-.event-subtitle {
-    font-size: 1.2rem;
-    color: var(--secondary);
-    margin-bottom: 2rem;
-    font-weight: 600;
+.event-info p {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
 }
 
 .event-meta {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.5rem;
 }
 
 .meta-item {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    color: var(--white-off);
+    gap: 0.5rem;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.meta-item i {
+    color: var(--accent);
+    width: 16px;
+}
+
+.event-actions {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.select-event {
+    width: 100%;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.select-event:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 180, 216, 0.4);
+}
+
+/* Mobile touch improvements */
+.select-event:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(0, 180, 216, 0.3);
+}
+
+.event-card {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.event-card:active {
+    transform: scale(0.98);
 }
 
 .meta-item i {
@@ -1444,6 +1599,82 @@ section[id] {
     padding: 2.5rem;
     border-radius: var(--border-radius-lg);
     border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.event-selection {
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.event-selection h3 {
+    color: var(--white);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+.event-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.event-option {
+    position: relative;
+}
+
+.event-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.event-option label {
+    display: block;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.event-option input[type="radio"]:checked + label {
+    border-color: var(--accent);
+    background: rgba(0, 180, 216, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 180, 216, 0.2);
+}
+
+.event-option label:hover {
+    border-color: var(--accent);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.event-date {
+    display: block;
+    color: var(--white);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.event-time {
+    display: block;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.event-location {
+    display: block;
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-weight: 500;
+    line-height: 1.3;
 }
 
 .form-section {
@@ -1904,6 +2135,74 @@ section[id] {
         grid-template-columns: 1fr;
     }
     
+    .events-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .event-poster {
+        height: 300px;
+    }
+    
+    .event-overlay {
+        opacity: 1;
+        background: linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.4) 0%,
+            rgba(0, 0, 0, 0.8) 100%
+        );
+    }
+    
+    /* Mobile-specific event card improvements */
+    .event-card {
+        margin-bottom: 1.5rem;
+    }
+    
+    .event-info h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.3rem;
+    }
+    
+    .event-info p {
+        font-size: 0.85rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    /* Mobile event info improvements */
+    .event-info {
+        background: rgba(0, 0, 0, 0.7);
+        padding: 1rem;
+        border-radius: 8px;
+        backdrop-filter: blur(5px);
+    }
+    
+    .event-meta {
+        gap: 0.3rem;
+    }
+    
+    .meta-item {
+        font-size: 0.8rem;
+        line-height: 1.3;
+    }
+    
+    .meta-item span {
+        line-height: 1.2;
+    }
+    
+    .event-date-badge {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .event-date-badge .day {
+        font-size: 1.2rem;
+    }
+    
+    .event-date-badge .month,
+    .event-date-badge .year {
+        font-size: 0.7rem;
+    }
+    
     .event-info {
         flex-direction: column;
         text-align: center;
@@ -2022,6 +2321,113 @@ section[id] {
 
     .hero-title {
         font-size: 2.5rem;
+    }
+
+    .mission-header h3 {
+        font-size: 1.6rem;
+    }
+
+    .mission-content p {
+        font-size: 1rem;
+        padding: 1.5rem;
+    }
+
+    .criteria-header h3 {
+        font-size: 1.4rem;
+    }
+
+    .criteria-list {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+
+    .criteria-list li {
+        padding: 1.2rem;
+        font-size: 0.95rem;
+    }
+    
+    .event-options {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+    
+    .event-option label {
+        padding: 1.2rem;
+        text-align: left;
+    }
+    
+    .event-date {
+        font-size: 1rem;
+        margin-bottom: 0.3rem;
+    }
+    
+    .event-time {
+        font-size: 0.85rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .event-location {
+        font-size: 0.8rem;
+        line-height: 1.3;
+        padding: 0.5rem;
+        background: rgba(0, 180, 216, 0.1);
+        border-radius: 6px;
+        border-left: 3px solid var(--accent);
+    }
+    
+    /* Mobile event selection improvements */
+    .event-selection {
+        margin-bottom: 2rem;
+        padding-bottom: 1.5rem;
+    }
+    
+    .event-selection h3 {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+    }
+    
+    .event-options {
+        gap: 0.6rem;
+    }
+    
+    .event-option input[type="radio"]:checked + label {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 15px rgba(0, 180, 216, 0.3);
+    }
+    
+    .location-list {
+        gap: 0.5rem;
+    }
+    
+    .location-item {
+        font-size: 0.9rem;
+        padding: 0.8rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
+        border-left: 3px solid var(--accent);
+        margin-bottom: 0.5rem;
+    }
+    
+    .location-item strong {
+        display: block;
+        margin-bottom: 0.3rem;
+        font-size: 0.95rem;
+    }
+    
+    /* Mobile method improvements */
+    .method {
+        padding: 1.2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .method h4 {
+        font-size: 1.1rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .method p,
+    .location-list {
+        font-size: 0.9rem;
     }
 
     /* Improve hero spacing on small screens */
