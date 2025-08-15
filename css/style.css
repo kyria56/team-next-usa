@@ -369,13 +369,38 @@ section[id] {
     margin: 0 auto;
 }
 
-.criteria-list {
-    list-style: none;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
-}
+    .criteria-list {
+        list-style: none;
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+    }
+    
+    @media (max-width: 768px) and (orientation: portrait) {
+        .criteria-list {
+            grid-template-columns: 1fr;
+            gap: 0.8rem;
+        }
+        
+        .criteria-list li {
+            padding: 1.25rem;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            border-left: 4px solid var(--accent);
+            transition: all 0.3s ease;
+        }
+        
+        .criteria-list li:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateY(-2px);
+        }
+    }
 
 .criteria-list li {
     background: rgba(255, 255, 255, 0.1);
@@ -1972,16 +1997,183 @@ section[id] {
     
     .training-methods {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .training-method {
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        gap: 1rem;
+    }
+    
+    .training-method h4 {
+        font-size: 1.1rem;
+        margin-bottom: 0.8rem;
+        color: var(--accent);
+        font-weight: 600;
+    }
+    
+    .training-method p {
+        font-size: 0.9rem;
+        line-height: 1.4;
+        color: var(--text-light);
+    }
+    
+    /* Stats mobile optimization - Portrait First */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    
+    .stat-item {
+        padding: 1.5rem 1rem;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+        color: var(--accent);
+        font-weight: 700;
+        text-shadow: 0 0 10px rgba(0, 180, 216, 0.3);
+    }
+    
+    .stat-label {
+        font-size: 0.85rem;
+        line-height: 1.3;
+        color: var(--text-light);
+        text-align: center;
     }
     
     .contact-info {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    /* Contact Section Mobile Optimization */
+    .contact-section {
+        padding: 3rem 0;
+    }
+    
+    .contact-card {
+        padding: 1.5rem;
+        text-align: center;
+    }
+    
+    .contact-card i {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .contact-card h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .contact-card p {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+    
+    /* Contact form mobile */
+    .contact-form {
+        padding: 2rem 1.5rem;
+    }
+    
+    .contact-form h3 {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .contact-form .form-group {
+        margin-bottom: 1.25rem;
+    }
+    
+    .contact-form input,
+    .contact-form textarea {
+        padding: 0.9rem;
+        font-size: 0.95rem;
+    }
+    
+    /* Footer mobile */
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+    }
+    
+    .footer-section h3 {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .footer-section p,
+    .footer-section a {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+    
+    .footer-bottom {
+        padding: 1.5rem 0;
+        font-size: 0.85rem;
+    }
+    
+    /* Mobile scroll behavior */
+    html {
+        scroll-behavior: smooth;
+    }
+    
+    /* Mobile touch improvements */
+    .btn,
+    .event-option label,
+    .nav-menu a {
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+    }
+    
+    /* Mobile performance optimizations */
+    .hero,
+    .section {
+        will-change: transform;
+    }
+    
+    /* Mobile spacing utilities */
+    .mobile-padding {
+        padding: 0 1rem;
+    }
+    
+    .mobile-margin {
+        margin: 0 1rem;
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
     .container {
         padding: 0 1rem;
+    }
+    
+    /* Portrait-first mobile layout */
+    .hero {
+        min-height: 85vh;
+        padding-top: 5rem;
+        padding-bottom: 2rem;
     }
     
     .navbar {
@@ -2012,22 +2204,24 @@ section[id] {
         display: none;
     }
     
-    /* Mobile Menu */
+    /* Mobile Menu - Portrait First */
     .nav-menu {
         position: fixed;
         top: 0;
         left: -100%;
         width: 100%;
         height: 100vh;
-        background: linear-gradient(135deg, rgba(0, 0, 0, 0.98) 0%, rgba(0, 20, 40, 0.98) 100%);
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.98) 0%, rgba(0, 20, 40, 0.98) 100%); /* Vertical gradient */
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start; /* Start from top for vertical flow */
         align-items: center;
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         gap: 1rem;
         z-index: 1200;
-        padding: 2rem;
+        padding: 2rem 1rem 1rem 1rem; /* More padding at top */
         backdrop-filter: blur(20px);
+        overflow-y: auto; /* Scrollable if needed */
+        padding-top: 4rem; /* Space for close button */
     }
     
     .nav-menu.active {
@@ -2061,6 +2255,32 @@ section[id] {
         transform: translateY(-2px);
         box-shadow: 0 8px 25px rgba(0, 180, 216, 0.3);
         color: var(--white);
+    }
+    
+    /* Mobile menu improvements */
+    .nav-menu a:active {
+        transform: translateY(0);
+        box-shadow: 0 4px 15px rgba(0, 180, 216, 0.2);
+    }
+    
+    /* Mobile menu close button */
+    .nav-menu::before {
+        content: '×';
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        font-size: 2rem;
+        color: var(--accent);
+        cursor: pointer;
+        z-index: 1300;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 50%;
+        border: 1px solid rgba(0, 180, 216, 0.3);
     }
     
     /* Mobile Toggle Button */
@@ -2140,64 +2360,191 @@ section[id] {
         width: 100%;
         max-width: 100%;
         justify-content: center;
-        padding: 1.1rem 1.25rem;
-        font-size: 1.05rem;
+        padding: 1rem 1.25rem;
+        font-size: 1rem;
+        border-radius: 10px;
+        font-weight: 600;
+    }
+    
+    /* Button variations mobile */
+    .btn-primary {
+        background: linear-gradient(135deg, var(--accent) 0%, #00a8cc 100%);
+        box-shadow: 0 4px 15px rgba(0, 180, 216, 0.3);
+    }
+    
+    .btn-secondary {
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+    }
+    
+    .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 180, 216, 0.4);
     }
     
     .floating-card {
         display: none;
     }
     
+    /* Hide floating elements on mobile for better UX */
+    .floating-elements {
+        display: none;
+    }
+    
+    /* Ensure proper spacing without floating elements */
+    .hero-content {
+        padding: 0 1rem;
+    }
+    
 
     
-    .master-name {
-        font-size: 2rem;
+    /* About Section Mobile Optimization */
+    .event-name {
+        font-size: 1.8rem;
+        line-height: 1.2;
     }
     
-    .master-quote {
+    .event-title {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .event-description {
         padding: 1.5rem;
+        margin: 0 0.5rem;
     }
     
-    .master-quote blockquote {
+    .event-description p {
         font-size: 1rem;
+        line-height: 1.6;
     }
     
-    .achievement-item {
-        padding: 1rem;
+    /* Event Highlights Mobile */
+    .highlight-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
     }
     
-    .achievement-icon {
-        width: 40px;
-        height: 40px;
+    .highlight-item {
+        padding: 1.25rem;
+        gap: 0.8rem;
     }
     
-    .achievement-icon i {
+    .highlight-icon {
+        width: 45px;
+        height: 45px;
+        flex-shrink: 0;
+    }
+    
+    .highlight-icon i {
         font-size: 1.2rem;
     }
     
+    .highlight-content h4 {
+        font-size: 1rem;
+        margin-bottom: 0.4rem;
+    }
+    
+    .highlight-content p {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+    
+    /* Program Philosophy Mobile */
     .pillar {
-        padding: 2rem;
+        padding: 1.5rem;
+        margin-bottom: 1rem;
     }
     
     .pillar-icon {
-        width: 60px;
-        height: 60px;
+        width: 50px;
+        height: 50px;
+        margin-bottom: 1rem;
     }
     
     .pillar-icon i {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
     
+    .pillar h4 {
+        font-size: 1.1rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .pillar p {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+    
+    .pillar-features {
+        gap: 0.5rem;
+    }
+    
+    .pillar-features li {
+        font-size: 0.85rem;
+        padding: 0.4rem 0;
+    }
+    
+    /* Training Methods Mobile */
     .method {
-        padding: 1.5rem;
+        padding: 1.25rem;
+        margin-bottom: 1rem;
+    }
+    
+    .method-number {
+        font-size: 1.5rem;
+        width: 35px;
+        height: 35px;
+    }
+    
+    .method h4 {
+        font-size: 1rem;
+        margin-bottom: 0.6rem;
+    }
+    
+    .method p {
+        font-size: 0.9rem;
+        line-height: 1.4;
     }
     
     .stat-number {
-        font-size: 2.5rem;
+        font-size: 2rem;
+    }
+    
+    .stat-label {
+        font-size: 0.9rem;
     }
     
     .form-row {
         grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    /* Form layout mobile optimization */
+    .form-section {
+        margin-bottom: 2rem;
+    }
+    
+    .form-section:last-child {
+        margin-bottom: 0;
+    }
+    
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+    
+    .form-group:last-child {
+        margin-bottom: 0;
+    }
+    
+    /* Input focus states mobile */
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+        outline: none;
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.15);
     }
     
     .events-grid {
@@ -2205,67 +2552,115 @@ section[id] {
         gap: 1.5rem;
     }
     
+    /* Events Section Mobile Optimization - Portrait First */
+    .events-grid {
+        gap: 1.25rem;
+        margin-bottom: 2rem;
+        grid-template-columns: 1fr; /* Single column for vertical flow */
+    }
+    
+    .event-card {
+        margin-bottom: 1.25rem;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column; /* Vertical layout */
+    }
+    
+    /* Poster sizing fix for mobile - Portrait optimized */
     .event-poster {
-        height: 300px;
+        height: 250px; /* Good vertical proportion */
+        flex-shrink: 0; /* Don't shrink poster */
+    }
+    
+    /* Event content flows vertically */
+    .event-content {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+    }
+    
+    .poster-image {
+        object-fit: cover;
+        object-position: center;
     }
     
     .event-overlay {
         opacity: 1;
         background: linear-gradient(
             180deg,
-            rgba(0, 0, 0, 0.4) 0%,
-            rgba(0, 0, 0, 0.8) 100%
+            rgba(0, 0, 0, 0.3) 0%,
+            rgba(0, 0, 0, 0.7) 100%
         );
+        padding: 1.25rem;
     }
     
-    /* Mobile-specific event card improvements */
-    .event-card {
-        margin-bottom: 1.5rem;
-    }
-    
-    .event-info h3 {
-        font-size: 1.1rem;
-        margin-bottom: 0.3rem;
-    }
-    
-    .event-info p {
-        font-size: 0.85rem;
-        margin-bottom: 0.8rem;
-    }
-    
-    /* Mobile event info improvements */
+    /* Event info mobile improvements */
     .event-info {
-        background: rgba(0, 0, 0, 0.7);
+        background: rgba(0, 0, 0, 0.75);
         padding: 1rem;
         border-radius: 8px;
         backdrop-filter: blur(5px);
+        gap: 1rem;
     }
     
-    .event-meta {
-        gap: 0.3rem;
-    }
-    
-    .meta-item {
-        font-size: 0.8rem;
-        line-height: 1.3;
-    }
-    
-    .meta-item span {
+    .event-info h3 {
+        font-size: 1rem;
+        margin-bottom: 0.25rem;
         line-height: 1.2;
     }
     
+    .event-info p {
+        font-size: 0.8rem;
+        margin-bottom: 0.75rem;
+        line-height: 1.3;
+    }
+    
+    .event-meta {
+        gap: 0.25rem;
+    }
+    
+    .meta-item {
+        font-size: 0.75rem;
+        line-height: 1.2;
+        gap: 0.4rem;
+    }
+    
+    .meta-item i {
+        width: 14px;
+        font-size: 0.7rem;
+    }
+    
+    .meta-item span {
+        line-height: 1.1;
+    }
+    
+    /* Date badge mobile optimization */
     .event-date-badge {
-        padding: 0.5rem 1rem;
-        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+        align-self: flex-start;
     }
     
     .event-date-badge .day {
-        font-size: 1.2rem;
+        font-size: 1rem;
+        line-height: 1;
     }
     
     .event-date-badge .month,
     .event-date-badge .year {
-        font-size: 0.7rem;
+        font-size: 0.65rem;
+        opacity: 0.9;
+    }
+    
+    /* Event actions mobile */
+    .event-actions {
+        padding: 1.25rem;
+    }
+    
+    .select-event {
+        padding: 0.9rem 1.25rem;
+        font-size: 0.95rem;
+        font-weight: 600;
     }
     
     .event-info {
@@ -2274,37 +2669,68 @@ section[id] {
         gap: 2rem;
     }
     
-    .session-content {
+        .session-content {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .session-block {
+        padding: 2rem 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .session-header h4 {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .session-item {
+        padding: 1.25rem;
+        gap: 0.8rem;
+    }
+    
+    .session-item h5 {
+        font-size: 1rem;
+        margin-bottom: 0.4rem;
+    }
+    
+    .session-item p {
+        font-size: 0.9rem;
+        line-height: 1.4;
     }
     
     .sponsorship-content {
         flex-direction: column;
         text-align: center;
+        gap: 1rem;
     }
     
-    .footer-content {
-        grid-template-columns: 1fr;
-        text-align: center;
+    .sponsorship-highlight {
+        padding: 0.8rem 1.2rem;
+        font-size: 0.9rem;
     }
 
-    /* Improve readability and spacing on mobile */
+    /* General mobile spacing improvements */
     .about-section,
     .schedule-section,
     .registration-section,
     .contact-section {
-        padding: 4.5rem 0;
+        padding: 3rem 0;
     }
 
     .section-header {
-        margin-bottom: 2.5rem;
+        margin-bottom: 2rem;
     }
-
+    
     .section-title {
-        font-size: 2rem;
+        font-size: 1.8rem;
+        line-height: 1.2;
     }
+    
     .section-subtitle {
-        font-size: 1rem;
+        font-size: 0.95rem;
+        padding: 0 1rem;
+        line-height: 1.4;
     }
 
     /* Poster CTA hover text always visible on mobile to hint tap */
@@ -2402,17 +2828,93 @@ section[id] {
         width: 16px;
     }
 
+    /* Hero Section Mobile Optimization */
+    .hero {
+        min-height: 85vh;
+        padding-top: 5rem;
+        padding-bottom: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .hero-logo {
+        margin-bottom: 1.5rem;
+        animation: fadeInUp 1s ease-out 0.3s both;
+    }
+    
+    .hero-logo-img {
+        width: 80px;
+        filter: drop-shadow(0 4px 16px rgba(0, 180, 216, 0.3));
+        transition: all 0.3s ease;
+    }
+    
+    .hero-logo-img:hover {
+        transform: scale(1.05);
+        filter: drop-shadow(0 6px 20px rgba(0, 180, 216, 0.5));
+    }
+    
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 2rem;
+        line-height: 1.2;
+        margin-bottom: 1.5rem;
+        color: var(--white);
+        text-shadow: 0 0 20px rgba(0, 180, 216, 0.3);
     }
-
-    .mission-header h3 {
-        font-size: 1.6rem;
-    }
-
-    .mission-content p {
+    
+    .hero-subtitle {
         font-size: 1rem;
-        padding: 1.5rem;
+        margin-bottom: 2rem;
+        padding: 0 1rem;
+        color: var(--text-light);
+        line-height: 1.5;
+        max-width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .hero-cta {
+        gap: 1rem;
+        padding: 0 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .btn {
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+        min-height: 48px; /* Touch-friendly */
+        width: 100%;
+        transition: all 0.3s ease;
+    }
+    
+    .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 180, 216, 0.4);
+    }
+    
+    /* Mission Statement Mobile - Portrait First */
+    .mission-header h3 {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+        color: var(--accent);
+        text-align: center;
+    }
+    
+    .mission-content p {
+        font-size: 0.95rem;
+        padding: 1.25rem;
+        margin: 0 0.5rem;
+        line-height: 1.6;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
     }
 
     .criteria-header h3 {
@@ -2429,53 +2931,136 @@ section[id] {
         font-size: 0.95rem;
     }
     
-    .event-options {
-        grid-template-columns: 1fr;
-        gap: 0.8rem;
+    /* Registration Section Mobile Optimization */
+    .registration-section {
+        padding: 3rem 0;
     }
     
-    .event-option label {
-        padding: 1.2rem;
-        text-align: left;
-    }
-    
-    .event-date {
-        font-size: 1rem;
-        margin-bottom: 0.3rem;
-    }
-    
-    .event-time {
-        font-size: 0.85rem;
-        margin-bottom: 0.5rem;
-    }
-    
-    .event-location {
-        font-size: 0.8rem;
-        line-height: 1.3;
-        padding: 0.5rem;
-        background: rgba(0, 180, 216, 0.1);
-        border-radius: 6px;
-        border-left: 3px solid var(--accent);
-    }
-    
-    /* Mobile event selection improvements */
-    .event-selection {
+    .section-header {
         margin-bottom: 2rem;
-        padding-bottom: 1.5rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+        line-height: 1.2;
+    }
+    
+    .section-subtitle {
+        font-size: 0.95rem;
+        padding: 0 1rem;
+    }
+    
+    /* Event selection mobile */
+    .event-selection {
+        margin-bottom: 1.5rem;
+        padding-bottom: 1.25rem;
     }
     
     .event-selection h3 {
-        font-size: 1.3rem;
-        margin-bottom: 1rem;
+        font-size: 1.2rem;
+        margin-bottom: 0.8rem;
     }
     
     .event-options {
+        grid-template-columns: 1fr;
         gap: 0.6rem;
+    }
+    
+    .event-option label {
+        padding: 1rem;
+        text-align: left;
+        border-radius: 10px;
+    }
+    
+    .event-date {
+        font-size: 0.95rem;
+        margin-bottom: 0.25rem;
+    }
+    
+    .event-time {
+        font-size: 0.8rem;
+        margin-bottom: 0.4rem;
+    }
+    
+    .event-location {
+        font-size: 0.75rem;
+        line-height: 1.2;
+        padding: 0.4rem;
+        background: rgba(0, 180, 216, 0.1);
+        border-radius: 5px;
+        border-left: 2px solid var(--accent);
     }
     
     .event-option input[type="radio"]:checked + label {
         transform: translateY(-1px);
-        box-shadow: 0 4px 15px rgba(0, 180, 216, 0.3);
+        box-shadow: 0 3px 12px rgba(0, 180, 216, 0.25);
+    }
+    
+    /* Form mobile optimization - Portrait First */
+    .registration-form {
+        padding: 2rem 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .form-section {
+        margin-bottom: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .form-section h3 {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+        padding-bottom: 0.4rem;
+        border-bottom: 2px solid rgba(0, 180, 216, 0.3);
+    }
+    
+    .form-group {
+        margin-bottom: 1.25rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .form-group label {
+        font-size: 0.9rem;
+        margin-bottom: 0.4rem;
+        font-weight: 600;
+        color: var(--accent);
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 0.9rem;
+        font-size: 0.95rem;
+        border-radius: 8px;
+        min-height: 44px; /* Touch-friendly height */
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.05);
+        transition: all 0.3s ease;
+    }
+    
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+        box-shadow: 0 0 0 2px rgba(0, 180, 216, 0.15);
+        border-color: var(--accent);
+        background: rgba(255, 255, 255, 0.08);
+    }
+    
+    /* Submit button mobile - Portrait optimized */
+    .btn[type="submit"] {
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 10px;
+        min-height: 48px; /* Touch-friendly */
+        align-self: stretch; /* Full width */
+        margin-top: 1rem;
     }
     
     .location-list {
@@ -2602,4 +3187,218 @@ section[id] {
 .mt-4 { margin-top: 2rem; }
 
 .hidden { display: none; }
-.visible { display: block; } 
+.visible { display: block; }
+
+/* ===== PORTRAIT MOBILE OPTIMIZATIONS (Vertical-First) ===== */
+@media (max-width: 480px) and (orientation: portrait) {
+    .container {
+        padding: 0 0.75rem;
+    }
+    
+    /* Hero - Vertical-first layout */
+    .hero {
+        min-height: 90vh;
+        padding-top: 4rem;
+        padding-bottom: 2rem;
+    }
+    
+    .hero-title {
+        font-size: 1.8rem;
+        line-height: 1.1;
+        margin-bottom: 1rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.9rem;
+        padding: 0 0.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .hero-cta {
+        padding: 0 0.5rem;
+        gap: 0.8rem;
+    }
+    
+    /* Section headers - Vertical spacing */
+    .section-title {
+        font-size: 1.6rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .section-subtitle {
+        font-size: 0.9rem;
+        padding: 0 0.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    /* Events - Vertical poster optimization */
+    .event-poster {
+        height: 220px; /* Better vertical proportion */
+    }
+    
+    .event-info {
+        padding: 0.75rem;
+    }
+    
+    .event-info h3 {
+        font-size: 0.95rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .event-info p {
+        font-size: 0.75rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    /* Buttons - Vertical touch optimization */
+    .btn {
+        padding: 0.9rem 1.25rem;
+        font-size: 0.95rem;
+        min-height: 48px; /* Touch-friendly height */
+    }
+    
+    /* Forms - Vertical layout */
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+        min-height: 44px; /* Touch-friendly */
+    }
+    
+    /* Cards - Vertical spacing */
+    .pillar {
+        padding: 1.25rem;
+        margin-bottom: 1rem;
+    }
+    
+    .method {
+        padding: 1rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    /* Stats - Single column for vertical */
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .stat-item {
+        padding: 1.25rem 0.75rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .stat-number {
+        font-size: 1.8rem;
+        margin-bottom: 0.4rem;
+    }
+    
+    /* Navigation - Vertical menu */
+    .nav-menu {
+        padding: 1.5rem;
+        gap: 0.8rem;
+    }
+    
+    .nav-menu a {
+        padding: 0.9rem 1.25rem;
+        font-size: 1rem;
+        min-height: 48px; /* Touch-friendly */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Content - Vertical flow */
+    .mission-content p {
+        padding: 1rem;
+        margin: 0 0.25rem;
+        line-height: 1.5;
+    }
+    
+    .criteria-list li {
+        padding: 1rem;
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    /* Vertical spacing utilities */
+    .vertical-spacing {
+        margin-bottom: 1rem;
+    }
+    
+    .vertical-padding {
+        padding: 1rem 0;
+    }
+}
+
+/* ===== LANDSCAPE MOBILE HANDLING ===== */
+@media (max-width: 768px) and (orientation: landscape) {
+    /* Force portrait-like behavior even in landscape */
+    .hero {
+        min-height: 100vh;
+        padding-top: 3rem;
+        padding-bottom: 1rem;
+    }
+    
+    .hero-title {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .hero-cta {
+        gap: 0.8rem;
+    }
+    
+    .btn {
+        padding: 0.8rem 1.25rem;
+        font-size: 0.95rem;
+    }
+    
+    /* Compact sections for landscape */
+    .section {
+        padding: 2rem 0;
+    }
+    
+    .section-header {
+        margin-bottom: 1.5rem;
+    }
+    
+    .section-title {
+        font-size: 1.6rem;
+    }
+    
+    /* Events in landscape */
+    .event-poster {
+        height: 200px;
+    }
+    
+    .event-info {
+        padding: 0.75rem;
+    }
+    
+    /* Forms in landscape */
+    .registration-form,
+    .contact-form {
+        padding: 1.5rem 1rem;
+    }
+    
+    .form-section {
+        margin-bottom: 1rem;
+    }
+    
+    /* Navigation in landscape */
+    .nav-menu {
+        padding: 1rem;
+        gap: 0.5rem;
+    }
+    
+    .nav-menu a {
+        padding: 0.8rem 1.25rem;
+        font-size: 0.95rem;
+    }
+} 
