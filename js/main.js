@@ -317,6 +317,7 @@ function handleFormSubmit(e) {
     e.preventDefault();
     
     const form = e.target;
+    const formData = new FormData(form);
     const submitBtn = form.querySelector('button[type="submit"]');
     const originalText = submitBtn.innerHTML;
     
@@ -324,13 +325,37 @@ function handleFormSubmit(e) {
     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
     submitBtn.disabled = true;
     
-    // Simulate form submission (replace with actual form handling)
-    setTimeout(() => {
-        // Show success message
-        showNotification('Form submitted successfully!', 'success');
+    console.log('Submitting form to:', form.action);
+    console.log('Form data:', Object.fromEntries(formData));
+    
+    // Submit to Formspree
+    fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+            'Accept': 'application/json'
+        }
+    })
+    .then(response => {
+        console.log('Response status:', response.status);
+        console.log('Response headers:', response.headers);
+        
+        if (response.ok) {
+            return response.json();
+        } else {
+            throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        }
+    })
+    .then(data => {
+        console.log('Success response:', data);
+        showNotification('Registration submitted successfully! Check your email for confirmation.', 'success');
         
         // Reset form
         form.reset();
+        
+        // Reset event selection
+        const eventOptions = form.querySelectorAll('input[name="selectedEvent"]');
+        eventOptions.forEach(option => option.checked = false);
         
         // Reset button
         submitBtn.innerHTML = originalText;
@@ -340,7 +365,15 @@ function handleFormSubmit(e) {
         form.querySelectorAll('.form-group').forEach(group => {
             group.classList.remove('focused');
         });
-    }, 2000);
+    })
+    .catch(error => {
+        console.error('Submission error:', error);
+        showNotification('Submission failed. Please try again or contact us directly.', 'error');
+        
+        // Reset button
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+    });
 }
 
 // ===== FORM VALIDATION =====
