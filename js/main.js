@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initTermsToggle();
     initFormValidation();
     initMobileCTA();
+    initPaymentDetails();
 });
 
 // ===== LOADING SCREEN =====
@@ -471,6 +472,40 @@ function initTermsToggle() {
             }
         });
     });
+}
+
+// ===== PAYMENT DETAILS HANDLER =====
+function initPaymentDetails() {
+    const select = document.getElementById('paymentMethod');
+    const details = document.getElementById('paymentDetails');
+    if (!select || !details) return;
+
+    const options = details.querySelectorAll('.payment-option');
+
+    function updateVisibility() {
+        const method = select.value;
+        options.forEach(opt => {
+            const isActive = opt.getAttribute('data-method') === method;
+            opt.style.display = isActive ? 'flex' : 'none';
+        });
+
+        // Show helper note only when a valid method is chosen
+        const note = details.querySelector('.payment-note');
+        note.style.display = method ? 'block' : 'none';
+
+        // Reveal container when user interacts
+        details.style.display = method ? 'block' : 'none';
+    }
+
+    // Initialize hidden
+    details.style.display = 'none';
+    options.forEach(opt => (opt.style.display = 'none'));
+
+    // Bind change
+    select.addEventListener('change', updateVisibility);
+
+    // If a value is prefilled, reflect it
+    updateVisibility();
 }
 
 // ===== SMOOTH SCROLLING =====
