@@ -2382,6 +2382,43 @@ section[id] {
         transform: translateY(-2px);
         box-shadow: 0 6px 20px rgba(0, 180, 216, 0.4);
     }
+
+    /* Payment details block - portrait */
+    .payment-details {
+        margin-top: 0.75rem;
+        display: none;
+    }
+    .payment-option {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.9rem 1rem;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 10px;
+        margin-bottom: 0.6rem;
+    }
+    .payment-option i {
+        color: var(--accent);
+        font-size: 1.1rem;
+    }
+    .payment-text {
+        color: var(--white);
+        font-size: 0.95rem;
+    }
+    .payment-link {
+        margin-left: auto;
+        color: var(--accent);
+        text-decoration: underline;
+        font-weight: 600;
+        font-size: 0.9rem;
+    }
+    .payment-note {
+        font-size: 0.85rem;
+        color: var(--text-light);
+        margin-top: 0.25rem;
+        line-height: 1.4;
+    }
     
     .floating-card {
         display: none;
