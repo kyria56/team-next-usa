@@ -3089,6 +3089,11 @@ section[id] {
         background: rgba(255, 255, 255, 0.08);
     }
     
+    /* Camp shirt block */
+    #campShirtSizeRow .form-group select {
+        background: rgba(255, 255, 255, 0.05);
+    }
+    
     /* Submit button mobile - Portrait optimized */
     .btn[type="submit"] {
         padding: 1rem 1.5rem;
