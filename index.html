@@ -554,40 +554,40 @@
                 </div>
                 
                 <div class="registration-form">
-                    <div class="event-selection">
-                        <h3>Select Your Training Session</h3>
-                        <div class="event-options">
-                            <div class="event-option" data-event="sept14">
-                                <input type="radio" id="sept14" name="selectedEvent" value="sept14" required>
-                                <label for="sept14">
-                                    <span class="event-date">September 14, 2025</span>
-                                    <span class="event-time">11:00 AM – 4:00 PM</span>
-                                    <span class="event-location">Vision Taekwondo Rego Park<br>62-98 Woodhaven Blvd Unit S4, Rego Park, NY 11374</span>
-                                </label>
-                            </div>
-                            <div class="event-option" data-event="sept27">
-                                <input type="radio" id="sept27" name="selectedEvent" value="sept27" required>
-                                <label for="sept27">
-                                    <span class="event-date">September 27, 2025</span>
-                                    <span class="event-time">11:00 AM – 4:00 PM</span>
-                                    <span class="event-location">4302 Gosford Rd<br>Bakersfield, CA 93313</span>
-                                </label>
-                            </div>
-                            <div class="event-option" data-event="sept28">
-                                <input type="radio" id="sept28" name="selectedEvent" value="sept28" required>
-                                <label for="sept28">
-                                    <span class="event-date">September 28, 2025</span>
-                                    <span class="event-time">11:00 AM – 4:00 PM</span>
-                                    <span class="event-location">9400 Lurline Ave, Unit A1<br>Chatsworth, CA 91311</span>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    
                     <form action="https://formspree.io/f/mwpqzrwe" method="POST" class="enrollment-form" data-formspree="true" enctype="multipart/form-data">
                         <input type="hidden" name="_subject" value="New TEAM NEXT USA Registration">
                         <input type="hidden" name="_next" value="#registration">
                         <input type="text" name="_gotcha" style="display:none">
+                        
+                        <div class="event-selection">
+                            <h3>Select Your Training Session</h3>
+                            <div class="event-options">
+                                <div class="event-option" data-event="sept14">
+                                    <input type="radio" id="sept14" name="selectedEvent" value="sept14" required>
+                                    <label for="sept14">
+                                        <span class="event-date">September 14, 2025</span>
+                                        <span class="event-time">11:00 AM – 4:00 PM</span>
+                                        <span class="event-location">Vision Taekwondo Rego Park<br>62-98 Woodhaven Blvd Unit S4, Rego Park, NY 11374</span>
+                                    </label>
+                                </div>
+                                <div class="event-option" data-event="sept27">
+                                    <input type="radio" id="sept27" name="selectedEvent" value="sept27" required>
+                                    <label for="sept27">
+                                        <span class="event-date">September 27, 2025</span>
+                                        <span class="event-time">11:00 AM – 4:00 PM</span>
+                                        <span class="event-location">4302 Gosford Rd<br>Bakersfield, CA 93313</span>
+                                    </label>
+                                </div>
+                                <div class="event-option" data-event="sept28">
+                                    <input type="radio" id="sept28" name="selectedEvent" value="sept28" required>
+                                    <label for="sept28">
+                                        <span class="event-date">September 28, 2025</span>
+                                        <span class="event-time">11:00 AM – 4:00 PM</span>
+                                        <span class="event-location">9400 Lurline Ave, Unit A1<br>Chatsworth, CA 91311</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
                         <div class="form-section">
                             <h3>Personal Information</h3>
                             <div class="form-row">
@@ -608,6 +608,32 @@
                                 <div class="form-group">
                                     <label for="phone">Phone Number</label>
                                     <input type="tel" id="phone" name="phone" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>Camp Shirt (Optional)</h3>
+                            <div class="form-row">
+                                <div class="form-group checkbox">
+                                    <input type="checkbox" id="addShirt" name="addShirt" value="yes">
+                                    <label for="addShirt">Add Camp Shirt ($20)</label>
+                                </div>
+                            </div>
+                            <div class="form-row" id="campShirtSizeRow" style="display: none;">
+                                <div class="form-group">
+                                    <label for="campShirtSize">Camp Shirt Size</label>
+                                    <select id="campShirtSize" name="campShirtSize" disabled>
+                                        <option value="">Select Shirt Size</option>
+                                        <optgroup label="Youth">
+                                            <option value="youth-one-size">One Size</option>
+                                        </optgroup>
+                                        <optgroup label="Adult">
+                                            <option value="adult-xs">XS</option>
+                                            <option value="adult-s">Small</option>
+                                            <option value="adult-m">Medium</option>
+                                        </optgroup>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -638,9 +664,14 @@
                                     <select id="beltRank" name="beltRank" required>
                                         <option value="">Select Belt Rank</option>
                                         <option value="white">White</option>
+                                        <option value="yellow">Yellow</option>
+                                        <option value="orange">Orange</option>
+                                        <option value="green">Green</option>
                                         <option value="blue">Blue</option>
                                         <option value="purple">Purple</option>
                                         <option value="brown">Brown</option>
+                                        <option value="red">Red</option>
+                                        <option value="red-black">Red/Black</option>
                                         <option value="black">Black</option>
                                     </select>
                                 </div>
