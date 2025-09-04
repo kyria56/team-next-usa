@@ -16,6 +16,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initFormValidation();
     initMobileCTA();
     initPaymentDetails();
+    initCampShirtToggle();
+    initEventSelection();
 });
 
 // ===== LOADING SCREEN =====
@@ -506,6 +508,65 @@ function initPaymentDetails() {
 
     // If a value is prefilled, reflect it
     updateVisibility();
+}
+
+// ===== CAMP SHIRT TOGGLE =====
+function initCampShirtToggle() {
+    const checkbox = document.getElementById('addShirt');
+    const sizeRow = document.getElementById('campShirtSizeRow');
+    const sizeSelect = document.getElementById('campShirtSize');
+    if (!checkbox || !sizeRow || !sizeSelect) return;
+
+    function updateShirtState() {
+        const enabled = checkbox.checked;
+        sizeRow.style.display = enabled ? 'grid' : 'none';
+        sizeSelect.disabled = !enabled;
+        sizeSelect.required = enabled;
+        if (!enabled) sizeSelect.value = '';
+    }
+
+    checkbox.addEventListener('change', updateShirtState);
+    updateShirtState();
+}
+
+// ===== EVENT SELECTION ENHANCEMENT =====
+function initEventSelection() {
+    const eventRadios = document.querySelectorAll('input[name="selectedEvent"]');
+    const form = document.querySelector('.enrollment-form');
+    
+    if (!eventRadios.length || !form) return;
+    
+    // Add hidden field for better event data
+    let eventDataField = document.getElementById('eventData');
+    if (!eventDataField) {
+        eventDataField = document.createElement('input');
+        eventDataField.type = 'hidden';
+        eventDataField.name = 'eventData';
+        eventDataField.id = 'eventData';
+        form.appendChild(eventDataField);
+    }
+    
+    function updateEventData() {
+        const selected = document.querySelector('input[name="selectedEvent"]:checked');
+        if (selected) {
+            const eventOption = selected.closest('.event-option');
+            const date = eventOption.querySelector('.event-date').textContent;
+            const time = eventOption.querySelector('.event-time').textContent;
+            const location = eventOption.querySelector('.event-location').textContent.replace(/\n/g, ', ');
+            
+            eventDataField.value = `${date} - ${time} - ${location}`;
+        }
+    }
+    
+    eventRadios.forEach(radio => {
+        radio.addEventListener('change', updateEventData);
+    });
+    
+    // Update on form submit
+    form.addEventListener('submit', function(e) {
+        updateEventData();
+        console.log('Event selected:', eventDataField.value);
+    });
 }
 
 // ===== SMOOTH SCROLLING =====
