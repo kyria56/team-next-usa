@@ -276,7 +276,7 @@
             </div>
             
             <div class="events-grid">
-                <div class="event-card" data-event="sept14">
+                <div class="event-card clickable-event-card" data-event="sept14">
                     <div class="event-poster">
                         <img src="947D0004-AA80-4F0D-8F7D-804516CCA5F9.png" alt="September 14 Training Session" class="poster-image">
                         <div class="event-overlay">
@@ -313,7 +313,7 @@
                     </div>
                 </div>
 
-                <div class="event-card" data-event="sept27">
+                <div class="event-card clickable-event-card" data-event="sept27">
                     <div class="event-poster">
                         <img src="2 other posters/4AFC274B-96FB-42DB-8314-A65EF26AAE3F.png" alt="September 27 Training Session" class="poster-image">
                         <div class="event-overlay">
@@ -350,7 +350,7 @@
                     </div>
                 </div>
 
-                <div class="event-card" data-event="sept28">
+                <div class="event-card clickable-event-card" data-event="sept28">
                     <div class="event-poster">
                         <img src="2 other posters/5BB7BE5F-FF0C-49B4-8A28-CB11283ADF8D.png" alt="September 28 Training Session" class="poster-image">
                         <div class="event-overlay">
@@ -515,79 +515,104 @@
                 <p class="section-subtitle">Register for the intensive training session with Master Christian Suh</p>
             </div>
             
-            <div class="registration-content">
-                <div class="registration-info">
-                    <div class="info-card">
-                        <h3>Training Session Details</h3>
-                        <ul>
-                            <li><i class="fas fa-check"></i> Led by Master Christian Suh (Multi-time U.S. National Team Member)</li>
-                            <li><i class="fas fa-check"></i> Date & Time: Sunday, 14 September 2025, 11:00 AM – 4:00 PM</li>
-                            <li><i class="fas fa-check"></i> Location: Vision Taekwondo Rego Park, 62-98 Woodhaven Blvd Unit S4, Rego Park, NY 11374</li>
-                            <li><i class="fas fa-check"></i> Registration Fee: $100</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="info-card">
-                        <h3>Session Breakdown</h3>
-                        <div class="registration-details">
-                            <div class="detail-item">
-                                <i class="fas fa-clock"></i>
-                                <span>Session 1: Dynamic Warm-up, Technical Drills, Tactical Application</span>
+            <!-- Event Selection Cards -->
+            <div class="event-selection-cards">
+                <h3 class="selection-title">Choose Your Training Session</h3>
+                <div class="event-cards-container">
+                    <div class="event-card" data-event="sept14">
+                        <div class="event-card-header">
+                            <div class="event-date-badge">
+                                <span class="day">14</span>
+                                <span class="month">SEP</span>
+                                <span class="year">2025</span>
                             </div>
-                            <div class="detail-item">
-                                <i class="fas fa-fist-raised"></i>
-                                <span>Session 2: Scenario Sparring, Test Matches with Live Coaching & Feedback</span>
+                            <div class="event-location-badge">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>New York</span>
                             </div>
                         </div>
+                        <div class="event-card-content">
+                            <h4 class="event-card-title">September 14, 2025</h4>
+                            <p class="event-card-time">11:00 AM – 4:00 PM</p>
+                            <p class="event-card-location">Vision Taekwondo Rego Park<br>62-98 Woodhaven Blvd Unit S4<br>Rego Park, NY 11374</p>
+                        </div>
+                        <button type="button" class="event-select-btn" data-event="sept14">
+                            <span>Register for This Session</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
                     </div>
                     
-                    <div class="info-card">
-                        <h3>Special Opportunity</h3>
-                        <div class="sponsorship-info">
-                            <div class="sponsorship-badge">
-                                <i class="fas fa-crown"></i>
-                                <span>Dracula Open Sponsorship</span>
+                    <div class="event-card" data-event="sept27">
+                        <div class="event-card-header">
+                            <div class="event-date-badge">
+                                <span class="day">27</span>
+                                <span class="month">SEP</span>
+                                <span class="year">2025</span>
                             </div>
-                            <p>Selected athletes in the World Class Division will receive sponsorship to the Dracula Open</p>
+                            <div class="event-location-badge">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>California</span>
+                            </div>
                         </div>
+                        <div class="event-card-content">
+                            <h4 class="event-card-title">September 27, 2025</h4>
+                            <p class="event-card-time">11:00 AM – 4:00 PM</p>
+                            <p class="event-card-location">4302 Gosford Rd<br>Bakersfield, CA 93313</p>
+                        </div>
+                        <button type="button" class="event-select-btn" data-event="sept27">
+                            <span>Register for This Session</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="event-card" data-event="sept28">
+                        <div class="event-card-header">
+                            <div class="event-date-badge">
+                                <span class="day">28</span>
+                                <span class="month">SEP</span>
+                                <span class="year">2025</span>
+                            </div>
+                            <div class="event-location-badge">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>California</span>
+                            </div>
+                        </div>
+                        <div class="event-card-content">
+                            <h4 class="event-card-title">September 28, 2025</h4>
+                            <p class="event-card-time">11:00 AM – 4:00 PM</p>
+                            <p class="event-card-location">9400 Lurline Ave, Unit A1<br>Chatsworth, CA 91311</p>
+                        </div>
+                        <button type="button" class="event-select-btn" data-event="sept28">
+                            <span>Register for This Session</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
                     </div>
                 </div>
-                
-                <div class="registration-form">
-                    <form action="https://formspree.io/f/mwpqzrwe" method="POST" class="enrollment-form" data-formspree="true" enctype="multipart/form-data">
-                        <input type="hidden" name="_subject" value="New TEAM NEXT USA Registration">
-                        <input type="hidden" name="_next" value="#registration">
-                        <input type="text" name="_gotcha" style="display:none">
-                        
-                        <div class="event-selection">
-                            <h3>Select Your Training Session</h3>
-                            <div class="event-options">
-                                <div class="event-option" data-event="sept14">
-                                    <input type="radio" id="sept14" name="selectedEvent" value="sept14" required>
-                                    <label for="sept14">
-                                        <span class="event-date">September 14, 2025</span>
-                                        <span class="event-time">11:00 AM – 4:00 PM</span>
-                                        <span class="event-location">Vision Taekwondo Rego Park<br>62-98 Woodhaven Blvd Unit S4, Rego Park, NY 11374</span>
-                                    </label>
-                                </div>
-                                <div class="event-option" data-event="sept27">
-                                    <input type="radio" id="sept27" name="selectedEvent" value="sept27" required>
-                                    <label for="sept27">
-                                        <span class="event-date">September 27, 2025</span>
-                                        <span class="event-time">11:00 AM – 4:00 PM</span>
-                                        <span class="event-location">4302 Gosford Rd<br>Bakersfield, CA 93313</span>
-                                    </label>
-                                </div>
-                                <div class="event-option" data-event="sept28">
-                                    <input type="radio" id="sept28" name="selectedEvent" value="sept28" required>
-                                    <label for="sept28">
-                                        <span class="event-date">September 28, 2025</span>
-                                        <span class="event-time">11:00 AM – 4:00 PM</span>
-                                        <span class="event-location">9400 Lurline Ave, Unit A1<br>Chatsworth, CA 91311</span>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
+            </div>
+            
+            <!-- Selected Event Summary -->
+            <div class="selected-event-summary" id="selectedEventSummary" style="display: none;">
+                <div class="summary-content">
+                    <i class="fas fa-calendar-check"></i>
+                    <span class="summary-text">Selected: <strong id="selectedEventText"></strong></span>
+                </div>
+                <button type="button" class="change-event-btn" id="changeEventBtn">
+                    <i class="fas fa-edit"></i>
+                    <span>Change</span>
+                </button>
+            </div>
+            
+            <!-- Registration Forms Container -->
+            <div class="registration-forms-container" id="registrationFormsContainer">
+                <div class="forms-scroll-container" id="formsScrollContainer">
+                    <!-- Form for Sept 14 -->
+                    <div class="registration-form" data-event="sept14">
+                        <form action="https://formspree.io/f/mwpqzrwe" method="POST" class="enrollment-form" data-formspree="true" enctype="multipart/form-data">
+                            <input type="hidden" name="_subject" value="New TEAM NEXT USA Registration - Sept 14">
+                            <input type="hidden" name="_next" value="#registration">
+                            <input type="hidden" name="selectedEvent" value="sept14">
+                            <input type="hidden" name="eventData" value="September 14, 2025 - 11:00 AM – 4:00 PM - Vision Taekwondo Rego Park, 62-98 Woodhaven Blvd Unit S4, Rego Park, NY 11374">
+                            <input type="text" name="_gotcha" style="display:none">
                         <div class="form-section">
                             <h3>Personal Information</h3>
                             <div class="form-row">
@@ -750,7 +775,352 @@
                         </button>
                     </form>
                 </div>
+                
+                <!-- Form for Sept 27 -->
+                <div class="registration-form" data-event="sept27">
+                    <form action="https://formspree.io/f/xdklyjlg" method="POST" class="enrollment-form" data-formspree="true" enctype="multipart/form-data">
+                        <input type="hidden" name="_subject" value="New TEAM NEXT USA Registration - Sept 27">
+                        <input type="hidden" name="_next" value="#registration">
+                        <input type="hidden" name="selectedEvent" value="sept27">
+                        <input type="hidden" name="eventData" value="September 27, 2025 - 11:00 AM – 4:00 PM - 4302 Gosford Rd, Bakersfield, CA 93313">
+                        <input type="text" name="_gotcha" style="display:none">
+                        
+                        <div class="form-section">
+                            <h3>Personal Information</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName27">First Name</label>
+                                    <input type="text" id="firstName27" name="firstName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName27">Last Name</label>
+                                    <input type="text" id="lastName27" name="lastName" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email27">Email</label>
+                                    <input type="email" id="email27" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone27">Phone Number</label>
+                                    <input type="tel" id="phone27" name="phone" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>Event Details</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="age27">Age</label>
+                                    <input type="number" id="age27" name="age" min="1" max="120" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="division27">Division</label>
+                                    <select id="division27" name="division" required>
+                                        <option value="">Select Division</option>
+                                        <option value="dragon">Dragon</option>
+                                        <option value="tiger">Tiger</option>
+                                        <option value="youth">Youth</option>
+                                        <option value="cadet">Cadet</option>
+                                        <option value="junior">Junior</option>
+                                        <option value="senior">Senior</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="beltRank27">Belt Rank</label>
+                                    <select id="beltRank27" name="beltRank" required>
+                                        <option value="">Select Belt Rank</option>
+                                        <option value="white">White</option>
+                                        <option value="yellow">Yellow</option>
+                                        <option value="orange">Orange</option>
+                                        <option value="green">Green</option>
+                                        <option value="blue">Blue</option>
+                                        <option value="purple">Purple</option>
+                                        <option value="brown">Brown</option>
+                                        <option value="red">Red</option>
+                                        <option value="red-black">Red/Black</option>
+                                        <option value="black">Black</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>Camp Shirt (Optional)</h3>
+                            <div class="form-row">
+                                <div class="form-group checkbox">
+                                    <input type="checkbox" id="addShirt27" name="addShirt" value="yes">
+                                    <label for="addShirt27">Add Camp Shirt ($20)</label>
+                                </div>
+                            </div>
+                            <div class="form-row" id="campShirtSizeRow27" style="display: none;">
+                                <div class="form-group">
+                                    <label for="campShirtSize27">Camp Shirt Size</label>
+                                    <select id="campShirtSize27" name="campShirtSize" disabled>
+                                        <option value="">Select Shirt Size</option>
+                                        <optgroup label="Youth">
+                                            <option value="youth-one-size">One Size</option>
+                                        </optgroup>
+                                        <optgroup label="Adult">
+                                            <option value="adult-xs">XS</option>
+                                            <option value="adult-s">Small</option>
+                                            <option value="adult-m">Medium</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>Payment Method</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="paymentMethod27">Select Payment Method</label>
+                                    <select id="paymentMethod27" name="paymentMethod" required>
+                                        <option value="">Choose Payment Method</option>
+                                        <option value="zelle">Zelle</option>
+                                        <option value="venmo">Venmo</option>
+                                        <option value="cash">Cash (On-site)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- Dynamic payment details -->
+                            <div class="payment-details" id="paymentDetails27" aria-live="polite">
+                                <div class="payment-option payment-venmo" data-method="venmo">
+                                    <i class="fab fa-venmo"></i>
+                                    <span class="payment-text">Venmo: <strong>christian-hpma</strong></span>
+                                    <a class="payment-link" href="https://venmo.com/christian-hpma" target="_blank" rel="noopener">Open Venmo</a>
+                                </div>
+                                <div class="payment-option payment-zelle" data-method="zelle">
+                                    <i class="fas fa-money-check-alt"></i>
+                                    <span class="payment-text">Zelle: <strong>csuhtkd@gmail.com</strong> or <strong>jwstkd@aol.com</strong></span>
+                                </div>
+                                <div class="payment-option payment-cash" data-method="cash">
+                                    <i class="fas fa-hand-holding-usd"></i>
+                                    <span class="payment-text">Cash: Pay on-site at check-in</span>
+                                </div>
+                                <div class="payment-note">
+                                    Please include the attendee's full name in the payment memo. After completing payment, submit this form to finalize your registration.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>Special Requests</h3>
+                            <div class="form-group">
+                                <label for="specialRequests27">Notes or Requests</label>
+                                <textarea id="specialRequests27" name="specialRequests" rows="4" placeholder="Anything we should know?"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>Registration Fee</h3>
+                            <div class="payment-info">
+                                <div class="payment-amount">
+                                    <span class="amount">$100</span>
+                                    <span class="label">Registration Fee</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section terms">
+                            <div class="terms-toggle">
+                                <h3>Terms & Conditions</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="terms-content">
+                                <p>By registering for this training session, you agree to follow all safety guidelines and training protocols. This is an intensive training session requiring appropriate physical condition. Participants must bring their own training equipment and arrive 15 minutes early. No refunds will be provided for missed sessions.</p>
+                            </div>
+                            <div class="form-group checkbox">
+                                <input type="checkbox" id="agreeTerms27" name="agreeTerms" required>
+                                <label for="agreeTerms27">I agree to the Terms & Conditions</label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-large">
+                            <span>Complete Registration</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Form for Sept 28 -->
+                <div class="registration-form" data-event="sept28">
+                    <form action="https://formspree.io/f/mjkejzey" method="POST" class="enrollment-form" data-formspree="true" enctype="multipart/form-data">
+                        <input type="hidden" name="_subject" value="New TEAM NEXT USA Registration - Sept 28">
+                        <input type="hidden" name="_next" value="#registration">
+                        <input type="hidden" name="selectedEvent" value="sept28">
+                        <input type="hidden" name="eventData" value="September 28, 2025 - 11:00 AM – 4:00 PM - 9400 Lurline Ave, Unit A1, Chatsworth, CA 91311">
+                        <input type="text" name="_gotcha" style="display:none">
+                        
+                        <div class="form-section">
+                            <h3>Personal Information</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName28">First Name</label>
+                                    <input type="text" id="firstName28" name="firstName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName28">Last Name</label>
+                                    <input type="text" id="lastName28" name="lastName" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email28">Email</label>
+                                    <input type="email" id="email28" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone28">Phone Number</label>
+                                    <input type="tel" id="phone28" name="phone" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>Event Details</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="age28">Age</label>
+                                    <input type="number" id="age28" name="age" min="1" max="120" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="division28">Division</label>
+                                    <select id="division28" name="division" required>
+                                        <option value="">Select Division</option>
+                                        <option value="dragon">Dragon</option>
+                                        <option value="tiger">Tiger</option>
+                                        <option value="youth">Youth</option>
+                                        <option value="cadet">Cadet</option>
+                                        <option value="junior">Junior</option>
+                                        <option value="senior">Senior</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="beltRank28">Belt Rank</label>
+                                    <select id="beltRank28" name="beltRank" required>
+                                        <option value="">Select Belt Rank</option>
+                                        <option value="white">White</option>
+                                        <option value="yellow">Yellow</option>
+                                        <option value="orange">Orange</option>
+                                        <option value="green">Green</option>
+                                        <option value="blue">Blue</option>
+                                        <option value="purple">Purple</option>
+                                        <option value="brown">Brown</option>
+                                        <option value="red">Red</option>
+                                        <option value="red-black">Red/Black</option>
+                                        <option value="black">Black</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>Camp Shirt (Optional)</h3>
+                            <div class="form-row">
+                                <div class="form-group checkbox">
+                                    <input type="checkbox" id="addShirt28" name="addShirt" value="yes">
+                                    <label for="addShirt28">Add Camp Shirt ($20)</label>
+                                </div>
+                            </div>
+                            <div class="form-row" id="campShirtSizeRow28" style="display: none;">
+                                <div class="form-group">
+                                    <label for="campShirtSize28">Camp Shirt Size</label>
+                                    <select id="campShirtSize28" name="campShirtSize" disabled>
+                                        <option value="">Select Shirt Size</option>
+                                        <optgroup label="Youth">
+                                            <option value="youth-one-size">One Size</option>
+                                        </optgroup>
+                                        <optgroup label="Adult">
+                                            <option value="adult-xs">XS</option>
+                                            <option value="adult-s">Small</option>
+                                            <option value="adult-m">Medium</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>Payment Method</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="paymentMethod28">Select Payment Method</label>
+                                    <select id="paymentMethod28" name="paymentMethod" required>
+                                        <option value="">Choose Payment Method</option>
+                                        <option value="zelle">Zelle</option>
+                                        <option value="venmo">Venmo</option>
+                                        <option value="cash">Cash (On-site)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- Dynamic payment details -->
+                            <div class="payment-details" id="paymentDetails28" aria-live="polite">
+                                <div class="payment-option payment-venmo" data-method="venmo">
+                                    <i class="fab fa-venmo"></i>
+                                    <span class="payment-text">Venmo: <strong>christian-hpma</strong></span>
+                                    <a class="payment-link" href="https://venmo.com/christian-hpma" target="_blank" rel="noopener">Open Venmo</a>
+                                </div>
+                                <div class="payment-option payment-zelle" data-method="zelle">
+                                    <i class="fas fa-money-check-alt"></i>
+                                    <span class="payment-text">Zelle: <strong>csuhtkd@gmail.com</strong> or <strong>jwstkd@aol.com</strong></span>
+                                </div>
+                                <div class="payment-option payment-cash" data-method="cash">
+                                    <i class="fas fa-hand-holding-usd"></i>
+                                    <span class="payment-text">Cash: Pay on-site at check-in</span>
+                                </div>
+                                <div class="payment-note">
+                                    Please include the attendee's full name in the payment memo. After completing payment, submit this form to finalize your registration.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>Special Requests</h3>
+                            <div class="form-group">
+                                <label for="specialRequests28">Notes or Requests</label>
+                                <textarea id="specialRequests28" name="specialRequests" rows="4" placeholder="Anything we should know?"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>Registration Fee</h3>
+                            <div class="payment-info">
+                                <div class="payment-amount">
+                                    <span class="amount">$100</span>
+                                    <span class="label">Registration Fee</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section terms">
+                            <div class="terms-toggle">
+                                <h3>Terms & Conditions</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="terms-content">
+                                <p>By registering for this training session, you agree to follow all safety guidelines and training protocols. This is an intensive training session requiring appropriate physical condition. Participants must bring their own training equipment and arrive 15 minutes early. No refunds will be provided for missed sessions.</p>
+                            </div>
+                            <div class="form-group checkbox">
+                                <input type="checkbox" id="agreeTerms28" name="agreeTerms" required>
+                                <label for="agreeTerms28">I agree to the Terms & Conditions</label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-large">
+                            <span>Complete Registration</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </form>
+                </div>
             </div>
+        </div>
         </div>
     </section>
 
