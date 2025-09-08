@@ -1382,7 +1382,71 @@ section[id] {
 .session-timeline {
     display: flex;
     flex-direction: column;
+    gap: 1.5rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: center;
     gap: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 1.5rem 2rem;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(180deg, var(--accent) 0%, #00a8cc 100%);
+    border-radius: 15px 0 0 15px;
+}
+
+.timeline-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--accent);
+    transform: translateX(5px);
+    box-shadow: 0 8px 25px rgba(0, 180, 216, 0.2);
+}
+
+.timeline-time {
+    background: var(--accent);
+    color: var(--black);
+    padding: 0.8rem 1.2rem;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    min-width: 140px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.timeline-content {
+    flex: 1;
+}
+
+.timeline-content h4 {
+    color: var(--white);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.timeline-content p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin: 0;
 }
 
 .session-block {
@@ -3430,6 +3494,29 @@ section[id] {
     .forms-scroll-container {
         scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Timeline mobile */
+    .timeline-item {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.25rem 1.5rem;
+        text-align: center;
+    }
+    
+    .timeline-time {
+        min-width: auto;
+        width: 100%;
+        font-size: 0.85rem;
+        padding: 0.6rem 1rem;
+    }
+    
+    .timeline-content h4 {
+        font-size: 1.1rem;
+    }
+    
+    .timeline-content p {
+        font-size: 0.9rem;
     }
     
     /* Submit button mobile - Portrait optimized */
