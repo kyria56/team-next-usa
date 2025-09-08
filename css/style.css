@@ -1156,6 +1156,53 @@ section[id] {
 }
 
 /* ===== EVENTS SECTION ===== */
+.clickable-event-card {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.clickable-event-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 180, 216, 0.3);
+}
+
+.clickable-event-card .event-poster {
+    position: relative;
+}
+
+.clickable-event-card .event-poster::after {
+    content: 'Click to Register';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: var(--accent);
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.clickable-event-card:hover .event-poster::after {
+    opacity: 1;
+}
+
+.clickable-event-card .event-overlay {
+    transition: all 0.3s ease;
+}
+
+.clickable-event-card:hover .event-overlay {
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.3) 0%,
+        rgba(0, 0, 0, 0.8) 100%
+    );
+}
 .schedule-section {
     padding: 8rem 0;
     background: var(--dark);
@@ -1506,6 +1553,222 @@ section[id] {
     font-weight: 700;
     font-size: 0.9rem;
     letter-spacing: 1px;
+}
+
+/* ===== EVENT SELECTION CARDS ===== */
+.event-selection-cards {
+    margin-bottom: 3rem;
+}
+
+.selection-title {
+    text-align: center;
+    font-size: 1.8rem;
+    color: var(--white);
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+.event-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.event-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.event-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent) 0%, #00a8cc 100%);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.event-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--accent);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 180, 216, 0.2);
+}
+
+.event-card:hover::before {
+    transform: scaleX(1);
+}
+
+.event-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+}
+
+.event-date-badge {
+    background: var(--accent);
+    color: var(--black);
+    padding: 0.8rem 1rem;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: 700;
+    min-width: 60px;
+}
+
+.event-date-badge .day {
+    display: block;
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.event-date-badge .month,
+.event-date-badge .year {
+    display: block;
+    font-size: 0.7rem;
+    opacity: 0.8;
+}
+
+.event-location-badge {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--accent);
+    padding: 0.5rem 0.8rem;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.event-card-content {
+    margin-bottom: 1.5rem;
+}
+
+.event-card-title {
+    font-size: 1.3rem;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.event-card-time {
+    color: var(--accent);
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+}
+
+.event-card-location {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.event-select-btn {
+    width: 100%;
+    background: linear-gradient(135deg, var(--accent) 0%, #00a8cc 100%);
+    color: var(--black);
+    border: none;
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.event-select-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 180, 216, 0.3);
+}
+
+/* Selected Event Summary */
+.selected-event-summary {
+    background: rgba(0, 180, 216, 0.1);
+    border: 1px solid var(--accent);
+    border-radius: 10px;
+    padding: 1rem 1.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    backdrop-filter: blur(10px);
+}
+
+.summary-content {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: var(--white);
+}
+
+.summary-content i {
+    color: var(--accent);
+    font-size: 1.2rem;
+}
+
+.summary-text {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.change-event-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.change-event-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: var(--accent);
+}
+
+/* Registration Forms Container */
+.registration-forms-container {
+    display: none;
+}
+
+.registration-forms-container.active {
+    display: block;
+}
+
+.forms-scroll-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    gap: 0;
+    padding: 0;
+}
+
+.registration-form {
+    min-width: 100%;
+    scroll-snap-align: start;
+    flex-shrink: 0;
 }
 
 /* ===== REGISTRATION SECTION ===== */
@@ -3092,6 +3355,81 @@ section[id] {
     /* Camp shirt block */
     #campShirtSizeRow .form-group select {
         background: rgba(255, 255, 255, 0.05);
+    }
+    
+    /* Event selection cards mobile */
+    .event-cards-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .event-card {
+        padding: 1.5rem;
+    }
+    
+    .event-card-header {
+        margin-bottom: 1rem;
+    }
+    
+    .event-date-badge {
+        padding: 0.6rem 0.8rem;
+        min-width: 50px;
+    }
+    
+    .event-date-badge .day {
+        font-size: 1.3rem;
+    }
+    
+    .event-date-badge .month,
+    .event-date-badge .year {
+        font-size: 0.6rem;
+    }
+    
+    .event-location-badge {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.7rem;
+    }
+    
+    .event-card-title {
+        font-size: 1.1rem;
+    }
+    
+    .event-card-time {
+        font-size: 0.9rem;
+    }
+    
+    .event-card-location {
+        font-size: 0.8rem;
+    }
+    
+    .event-select-btn {
+        padding: 0.9rem 1.25rem;
+        font-size: 0.95rem;
+    }
+    
+    /* Selected event summary mobile */
+    .selected-event-summary {
+        padding: 0.8rem 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .summary-content {
+        gap: 0.5rem;
+    }
+    
+    .summary-text {
+        font-size: 0.9rem;
+    }
+    
+    .change-event-btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+    
+    /* Forms scroll container mobile */
+    .forms-scroll-container {
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
     }
     
     /* Submit button mobile - Portrait optimized */
