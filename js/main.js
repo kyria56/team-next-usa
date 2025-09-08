@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initPaymentDetails();
     initCampShirtToggle();
     initEventSelection();
+    initClickableEventCards();
 });
 
 // ===== LOADING SCREEN =====
@@ -529,43 +530,186 @@ function initCampShirtToggle() {
     updateShirtState();
 }
 
-// ===== EVENT SELECTION ENHANCEMENT =====
+// ===== EVENT SELECTION SYSTEM =====
 function initEventSelection() {
-    const eventRadios = document.querySelectorAll('input[name="selectedEvent"]');
-    const form = document.querySelector('.enrollment-form');
+    const eventCards = document.querySelectorAll('.event-card');
+    const eventSelectBtns = document.querySelectorAll('.event-select-btn');
+    const selectedEventSummary = document.getElementById('selectedEventSummary');
+    const selectedEventText = document.getElementById('selectedEventText');
+    const changeEventBtn = document.getElementById('changeEventBtn');
+    const registrationFormsContainer = document.getElementById('registrationFormsContainer');
+    const formsScrollContainer = document.getElementById('formsScrollContainer');
+    const eventSelectionCards = document.querySelector('.event-selection-cards');
     
-    if (!eventRadios.length || !form) return;
+    if (!eventCards.length) return;
     
-    // Add hidden field for better event data
-    let eventDataField = document.getElementById('eventData');
-    if (!eventDataField) {
-        eventDataField = document.createElement('input');
-        eventDataField.type = 'hidden';
-        eventDataField.name = 'eventData';
-        eventDataField.id = 'eventData';
-        form.appendChild(eventDataField);
-    }
-    
-    function updateEventData() {
-        const selected = document.querySelector('input[name="selectedEvent"]:checked');
-        if (selected) {
-            const eventOption = selected.closest('.event-option');
-            const date = eventOption.querySelector('.event-date').textContent;
-            const time = eventOption.querySelector('.event-time').textContent;
-            const location = eventOption.querySelector('.event-location').textContent.replace(/\n/g, ', ');
-            
-            eventDataField.value = `${date} - ${time} - ${location}`;
+    // Event data mapping
+    const eventData = {
+        'sept14': {
+            title: 'September 14, 2025 - New York',
+            date: 'September 14, 2025',
+            time: '11:00 AM – 4:00 PM',
+            location: 'Vision Taekwondo Rego Park, 62-98 Woodhaven Blvd Unit S4, Rego Park, NY 11374'
+        },
+        'sept27': {
+            title: 'September 27, 2025 - Bakersfield',
+            date: 'September 27, 2025',
+            time: '11:00 AM – 4:00 PM',
+            location: '4302 Gosford Rd, Bakersfield, CA 93313'
+        },
+        'sept28': {
+            title: 'September 28, 2025 - Chatsworth',
+            date: 'September 28, 2025',
+            time: '11:00 AM – 4:00 PM',
+            location: '9400 Lurline Ave, Unit A1, Chatsworth, CA 91311'
         }
+    };
+    
+    function selectEvent(eventId) {
+        // Update selected event text
+        selectedEventText.textContent = eventData[eventId].title;
+        
+        // Show selected event summary
+        selectedEventSummary.style.display = 'flex';
+        
+        // Hide event selection cards
+        eventSelectionCards.style.display = 'none';
+        
+        // Show registration forms container
+        registrationFormsContainer.classList.add('active');
+        
+        // Scroll to the correct form
+        const targetForm = document.querySelector(`.registration-form[data-event="${eventId}"]`);
+        if (targetForm) {
+            formsScrollContainer.scrollTo({
+                left: targetForm.offsetLeft,
+                behavior: 'smooth'
+            });
+        }
+        
+        // Update URL without page reload
+        const url = new URL(window.location);
+        url.searchParams.set('event', eventId);
+        window.history.pushState({}, '', url);
+        
+        // Initialize payment details for the selected form
+        initPaymentDetailsForForm(eventId);
+        initCampShirtToggleForForm(eventId);
     }
     
-    eventRadios.forEach(radio => {
-        radio.addEventListener('change', updateEventData);
+    function changeEvent() {
+        // Hide selected event summary
+        selectedEventSummary.style.display = 'none';
+        
+        // Hide registration forms container
+        registrationFormsContainer.classList.remove('active');
+        
+        // Show event selection cards
+        eventSelectionCards.style.display = 'block';
+        
+        // Scroll to event selection
+        eventSelectionCards.scrollIntoView({ behavior: 'smooth' });
+        
+        // Remove event from URL
+        const url = new URL(window.location);
+        url.searchParams.delete('event');
+        window.history.pushState({}, '', url);
+    }
+    
+    // Event listeners
+    eventSelectBtns.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const eventId = this.getAttribute('data-event');
+            selectEvent(eventId);
+        });
     });
     
-    // Update on form submit
-    form.addEventListener('submit', function(e) {
-        updateEventData();
-        console.log('Event selected:', eventDataField.value);
+    changeEventBtn.addEventListener('click', changeEvent);
+    
+    // Check for event in URL on page load
+    const urlParams = new URLSearchParams(window.location.search);
+    const eventFromUrl = urlParams.get('event');
+    if (eventFromUrl && eventData[eventFromUrl]) {
+        selectEvent(eventFromUrl);
+    }
+    
+    // Initialize payment details for all forms
+    function initPaymentDetailsForForm(eventId) {
+        const select = document.getElementById(`paymentMethod${eventId === 'sept14' ? '' : eventId}`);
+        const details = document.getElementById(`paymentDetails${eventId === 'sept14' ? '' : eventId}`);
+        if (!select || !details) return;
+        
+        const options = details.querySelectorAll('.payment-option');
+        
+        function updateVisibility() {
+            const method = select.value;
+            options.forEach(opt => {
+                const isActive = opt.getAttribute('data-method') === method;
+                opt.style.display = isActive ? 'flex' : 'none';
+            });
+            
+            const note = details.querySelector('.payment-note');
+            note.style.display = method ? 'block' : 'none';
+            details.style.display = method ? 'block' : 'none';
+        }
+        
+        details.style.display = 'none';
+        options.forEach(opt => (opt.style.display = 'none'));
+        select.addEventListener('change', updateVisibility);
+    }
+    
+    function initCampShirtToggleForForm(eventId) {
+        const checkbox = document.getElementById(`addShirt${eventId === 'sept14' ? '' : eventId}`);
+        const sizeRow = document.getElementById(`campShirtSizeRow${eventId === 'sept14' ? '' : eventId}`);
+        const sizeSelect = document.getElementById(`campShirtSize${eventId === 'sept14' ? '' : eventId}`);
+        if (!checkbox || !sizeRow || !sizeSelect) return;
+        
+        function updateShirtState() {
+            const enabled = checkbox.checked;
+            sizeRow.style.display = enabled ? 'grid' : 'none';
+            sizeSelect.disabled = !enabled;
+            sizeSelect.required = enabled;
+            if (!enabled) sizeSelect.value = '';
+        }
+        
+        checkbox.addEventListener('change', updateShirtState);
+        updateShirtState();
+    }
+}
+
+// ===== CLICKABLE EVENT CARDS =====
+function initClickableEventCards() {
+    const clickableCards = document.querySelectorAll('.clickable-event-card');
+    
+    clickableCards.forEach(card => {
+        card.addEventListener('click', function(e) {
+            // Don't trigger if clicking on the button
+            if (e.target.closest('.select-event')) {
+                return;
+            }
+            
+            const eventId = this.getAttribute('data-event');
+            
+            // Navigate to registration section
+            const registrationSection = document.getElementById('registration');
+            if (registrationSection) {
+                const offsetTop = registrationSection.offsetTop - 80;
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+                
+                // Auto-select the event after a short delay
+                setTimeout(() => {
+                    // Trigger the event selection
+                    const eventSelectBtn = document.querySelector(`.event-select-btn[data-event="${eventId}"]`);
+                    if (eventSelectBtn) {
+                        eventSelectBtn.click();
+                    }
+                }, 800); // Wait for scroll to complete
+            }
+        });
     });
 }
 
