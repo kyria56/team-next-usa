@@ -3688,6 +3688,19 @@ section[id] {
         font-size: 0.9rem;
     }
     
+    /* Show payment details instantly on mobile */
+    .payment-details {
+        display: block !important;
+    }
+    
+    .payment-option {
+        display: flex !important;
+    }
+    
+    .payment-note {
+        display: block !important;
+    }
+    
     /* Submit button mobile - Portrait optimized */
     .btn[type="submit"] {
         padding: 1rem 1.5rem;
