@@ -593,9 +593,11 @@ function initEventSelection() {
         url.searchParams.set('event', eventId);
         window.history.pushState({}, '', url);
         
-        // Initialize payment details for the selected form
-        initPaymentDetailsForForm(eventId);
-        initCampShirtToggleForForm(eventId);
+        // Initialize payment details for the selected form after a short delay
+        setTimeout(() => {
+            initPaymentDetailsForForm(eventId);
+            initCampShirtToggleForForm(eventId);
+        }, 100);
     }
     
     function changeEvent() {
@@ -605,11 +607,8 @@ function initEventSelection() {
         // Hide registration forms container
         registrationFormsContainer.classList.remove('active');
         
-        // Show event selection cards
-        eventSelectionCards.style.display = 'block';
-        
-        // Scroll to event selection
-        eventSelectionCards.scrollIntoView({ behavior: 'smooth' });
+        // Always scroll to top to show poster cards
+        window.scrollTo({ top: 0, behavior: 'smooth' });
         
         // Remove event from URL
         const url = new URL(window.location);
@@ -628,6 +627,11 @@ function initEventSelection() {
     
     changeEventBtn.addEventListener('click', changeEvent);
     
+    // Initialize payment details for all forms on page load
+    initPaymentDetailsForForm('sept14');
+    initPaymentDetailsForForm('sept27');
+    initPaymentDetailsForForm('sept28');
+    
     // Check for event in URL on page load
     const urlParams = new URLSearchParams(window.location.search);
     const eventFromUrl = urlParams.get('event');
@@ -641,7 +645,10 @@ function initEventSelection() {
         const detailsId = eventId === 'sept14' ? 'paymentDetails' : `paymentDetails${eventId}`;
         const select = document.getElementById(selectId);
         const details = document.getElementById(detailsId);
-        if (!select || !details) return;
+        
+        if (!select || !details) {
+            return;
+        }
         
         const options = details.querySelectorAll('.payment-option');
         
