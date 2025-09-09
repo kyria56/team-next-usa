@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initCampShirtToggle();
     initEventSelection();
     initClickableEventCards();
+    initMobilePosterCards();
 });
 
 // ===== LOADING SCREEN =====
@@ -708,6 +709,32 @@ function initClickableEventCards() {
                         eventSelectBtn.click();
                     }
                 }, 800); // Wait for scroll to complete
+            }
+        });
+    });
+}
+
+// ===== MOBILE POSTER CARDS (Top Section) =====
+function initMobilePosterCards() {
+    const mobilePosterCards = document.querySelectorAll('.mobile-poster-card');
+    if (!mobilePosterCards || mobilePosterCards.length === 0) return;
+
+    mobilePosterCards.forEach(card => {
+        card.addEventListener('click', function(e) {
+            // If the inner CTA button was clicked, let its handler proceed
+            if (e.target.closest('.mobile-poster-cta')) return;
+
+            const eventId = this.getAttribute('data-event');
+            const registrationSection = document.getElementById('registration');
+            if (registrationSection) {
+                const offsetTop = registrationSection.offsetTop - 80;
+                window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+                setTimeout(() => {
+                    const eventSelectBtn = document.querySelector(`.event-select-btn[data-event="${eventId}"]`);
+                    if (eventSelectBtn) {
+                        eventSelectBtn.click();
+                    }
+                }, 600);
             }
         });
     });
