@@ -4098,4 +4098,93 @@ section[id] {
     .register-overlay-btn:hover {
         background: rgba(0, 180, 216, 0.9);
     }
+}
+
+/* ===== FLOATING REGISTER BUTTON ===== */
+.floating-register-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: all 0.3s ease;
+}
+
+.floating-register-btn.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.register-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: var(--white);
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: 0 4px 20px rgba(0, 180, 216, 0.3);
+    transition: all 0.3s ease;
+    min-width: 120px;
+    justify-content: center;
+}
+
+.register-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(0, 180, 216, 0.4);
+    background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+}
+
+.register-link i {
+    font-size: 1.1rem;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    .floating-register-btn {
+        bottom: 15px;
+        right: 15px;
+    }
+    
+    .register-link {
+        padding: 14px 18px;
+        font-size: 0.95rem;
+        min-width: 110px;
+        gap: 6px;
+    }
+    
+    .register-link i {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .floating-register-btn {
+        bottom: 12px;
+        right: 12px;
+    }
+    
+    .register-link {
+        padding: 12px 16px;
+        font-size: 0.9rem;
+        min-width: 100px;
+        gap: 5px;
+    }
+    
+    .btn-text {
+        display: none;
+    }
+    
+    .register-link {
+        min-width: 50px;
+        justify-content: center;
+    }
+    
+    .register-link i {
+        font-size: 1.2rem;
+    }
 } 
