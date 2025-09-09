@@ -2003,7 +2003,7 @@ section[id] {
 
 /* Simplify desktop start: hide redundant components globally */
 .hero {
-    display: none;
+    display: none !important;
 }
 
 .event-selection-cards,
