@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration - TEAM NEXT USA</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/registration.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-text">
+                    <span class="logo-main">TEAM NEXT</span>
+                    <span class="logo-sub">USA</span>
+                </div>
+                <h1 class="nav-title">TEAM NEXT USA</h1>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#about" class="nav-link">About</a>
+                <a href="index.html#schedule" class="nav-link">Schedule</a>
+                <a href="registration.html" class="nav-link active">Registration</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-social">
+                <a href="https://instagram.com/team_nextusa" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Registration Header -->
+    <section class="registration-header">
+        <div class="container">
+            <h1 class="registration-title">Choose Your Training Session</h1>
+            <p class="registration-subtitle">Select your preferred date and location</p>
+        </div>
+    </section>
+
+    <!-- Event Selection -->
+    <section class="event-selection">
+        <div class="container">
+            <div class="event-cards">
+                <div class="event-card" data-event="sept14">
+                    <div class="event-poster">
+                        <img src="947D0004-AA80-4F0D-8F7D-804516CCA5F9.png" alt="September 14 Training Session" loading="lazy">
+                    </div>
+                    <div class="event-info">
+                        <div class="event-date">September 14, 2025</div>
+                        <div class="event-time">11:00 AM – 4:00 PM</div>
+                        <div class="event-location">Rego Park, NY</div>
+                        <div class="event-address">Vision Taekwondo Rego Park<br>62-98 Woodhaven Blvd Unit S4</div>
+                    </div>
+                    <button type="button" class="select-event-btn" data-event="sept14">Select This Session</button>
+                </div>
+
+                <div class="event-card" data-event="sept27">
+                    <div class="event-poster">
+                        <img src="2 other posters/4AFC274B-96FB-42DB-8314-A65EF26AAE3F.png" alt="September 27 Training Session" loading="lazy">
+                    </div>
+                    <div class="event-info">
+                        <div class="event-date">September 27, 2025</div>
+                        <div class="event-time">11:00 AM – 4:00 PM</div>
+                        <div class="event-location">Bakersfield, CA</div>
+                        <div class="event-address">4302 Gosford Rd</div>
+                    </div>
+                    <button type="button" class="select-event-btn" data-event="sept27">Select This Session</button>
+                </div>
+
+                <div class="event-card" data-event="sept28">
+                    <div class="event-poster">
+                        <img src="2 other posters/5BB7BE5F-FF0C-49B4-8A28-CB11283ADF8D.png" alt="September 28 Training Session" loading="lazy">
+                    </div>
+                    <div class="event-info">
+                        <div class="event-date">September 28, 2025</div>
+                        <div class="event-time">11:00 AM – 4:00 PM</div>
+                        <div class="event-location">Chatsworth, CA</div>
+                        <div class="event-address">9400 Lurline Ave, Unit A1</div>
+                    </div>
+                    <button type="button" class="select-event-btn" data-event="sept28">Select This Session</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Form -->
+    <section class="registration-form-section" id="registrationForm" style="display: none;">
+        <div class="container">
+            <div class="selected-event-info">
+                <h2>Registration for <span id="selectedEventName"></span></h2>
+                <button type="button" class="change-event-btn" id="changeEventBtn">Change Event</button>
+            </div>
+
+            <form class="registration-form" id="registrationFormElement" action="" method="POST">
+                <!-- Hidden fields for Formspree -->
+                <input type="hidden" name="_subject" value="New Training Session Registration">
+                <input type="hidden" name="_next" value="https://teamnextusa.com/thank-you.html">
+                <input type="hidden" name="selectedEvent" id="selectedEventField" value="">
+                <input type="hidden" name="eventData" id="eventDataField" value="">
+
+                <!-- Personal Information -->
+                <div class="form-section">
+                    <h3>Personal Information</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event Details -->
+                <div class="form-section">
+                    <h3>Event Details</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="age">Age</label>
+                            <input type="number" id="age" name="age" min="1" max="120" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="division">Division</label>
+                            <select id="division" name="division" required>
+                                <option value="">Select Division</option>
+                                <option value="dragon">Dragon</option>
+                                <option value="tiger">Tiger</option>
+                                <option value="youth">Youth</option>
+                                <option value="cadet">Cadet</option>
+                                <option value="junior">Junior</option>
+                                <option value="senior">Senior</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="beltRank">Belt Rank</label>
+                            <select id="beltRank" name="beltRank" required>
+                                <option value="">Select Belt Rank</option>
+                                <option value="white">White</option>
+                                <option value="yellow">Yellow</option>
+                                <option value="orange">Orange</option>
+                                <option value="green">Green</option>
+                                <option value="blue">Blue</option>
+                                <option value="purple">Purple</option>
+                                <option value="brown">Brown</option>
+                                <option value="red">Red</option>
+                                <option value="red-black">Red/Black</option>
+                                <option value="black">Black</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Information -->
+                <div class="form-section">
+                    <h3>Team Information</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="teamName">Team Name</label>
+                            <input type="text" id="teamName" name="teamName" placeholder="Enter your team name">
+                        </div>
+                        <div class="form-group">
+                            <label for="coachName">Coach Name</label>
+                            <input type="text" id="coachName" name="coachName" placeholder="Enter your coach's name">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="masterName">Master Name</label>
+                            <input type="text" id="masterName" name="masterName" placeholder="Enter your master's name">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Method -->
+                <div class="form-section">
+                    <h3>Payment Method</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="paymentMethod">Payment Method</label>
+                            <select id="paymentMethod" name="paymentMethod" required>
+                                <option value="">Select Payment Method</option>
+                                <option value="venmo">Venmo</option>
+                                <option value="zelle">Zelle</option>
+                                <option value="cash">Cash (On-site)</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <!-- Dynamic payment details -->
+                    <div class="payment-details" id="paymentDetails" style="display: none;">
+                        <div class="payment-option payment-venmo" data-method="venmo">
+                            <i class="fab fa-venmo"></i>
+                            <span class="payment-text">Venmo: <strong>christian-hpma</strong></span>
+                            <a class="payment-link" href="https://venmo.com/christian-hpma" target="_blank" rel="noopener">Open Venmo</a>
+                        </div>
+                        <div class="payment-option payment-zelle" data-method="zelle">
+                            <i class="fas fa-money-check-alt"></i>
+                            <span class="payment-text">Zelle: <strong>csuhtkd@gmail.com</strong></span>
+                        </div>
+                        <div class="payment-option payment-cash" data-method="cash">
+                            <i class="fas fa-hand-holding-usd"></i>
+                            <span class="payment-text">Cash: Pay on-site at check-in</span>
+                        </div>
+                        <div class="payment-note">
+                            Please include the attendee's full name in the payment memo. After completing payment, submit this form to finalize your registration.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Camp Shirt -->
+                <div class="form-section">
+                    <h3>Camp Shirt (Optional)</h3>
+                    <div class="form-row">
+                        <div class="form-group checkbox">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="addShirt" name="addShirt">
+                                <span class="checkmark"></span>
+                                Add Camp Shirt ($20)
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-row" id="campShirtSizeRow" style="display: none;">
+                        <div class="form-group">
+                            <label for="campShirtSize">Shirt Size</label>
+                            <select id="campShirtSize" name="campShirtSize">
+                                <option value="">Select Size</option>
+                                <option value="XS">XS</option>
+                                <option value="S">S</option>
+                                <option value="M">M</option>
+                                <option value="L">L</option>
+                                <option value="XL">XL</option>
+                                <option value="XXL">XXL</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Special Requests -->
+                <div class="form-section">
+                    <h3>Special Requests</h3>
+                    <div class="form-group">
+                        <label for="specialRequests">Any special requests or notes?</label>
+                        <textarea id="specialRequests" name="specialRequests" rows="4" placeholder="Please let us know if you have any special requirements..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Terms and Conditions -->
+                <div class="form-section">
+                    <div class="form-group checkbox">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="termsAccepted" name="termsAccepted" required>
+                            <span class="checkmark"></span>
+                            I agree to the <a href="#" class="terms-link">Terms and Conditions</a> and understand the training session requirements.
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="form-section">
+                    <button type="submit" class="btn btn-primary btn-submit">
+                        <span>Complete Registration</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-main">TEAM NEXT</span>
+                    <span class="logo-sub">USA</span>
+                </div>
+                <p class="footer-text">National Excellence in Taekwondo</p>
+                <div class="footer-social">
+                    <a href="https://instagram.com/team_nextusa" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/registration.js"></script>
+</body>
+</html>
