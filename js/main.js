@@ -646,7 +646,11 @@ function initEventSelection() {
         const select = document.getElementById(selectId);
         const details = document.getElementById(detailsId);
         
+        console.log('Trying to init payment for:', eventId, 'Select:', selectId, 'Details:', detailsId);
+        console.log('Found select:', select, 'Found details:', details);
+        
         if (!select || !details) {
+            console.log('Missing elements for:', eventId);
             return;
         }
         
@@ -654,14 +658,19 @@ function initEventSelection() {
         
         function updateVisibility() {
             const method = select.value;
+            console.log('Payment method changed to:', method, 'for event:', eventId);
+            
             options.forEach(opt => {
                 const isActive = opt.getAttribute('data-method') === method;
                 opt.style.display = isActive ? 'flex' : 'none';
+                console.log('Option', opt.getAttribute('data-method'), 'isActive:', isActive);
             });
             
             const note = details.querySelector('.payment-note');
             note.style.display = method ? 'block' : 'none';
             details.style.display = method ? 'block' : 'none';
+            
+            console.log('Details display set to:', details.style.display);
         }
         
         details.style.display = 'none';
