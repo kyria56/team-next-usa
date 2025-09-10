@@ -975,59 +975,8 @@ function initFloatingRegisterButton() {
     
     if (!floatingBtn) return;
     
-    let isVisible = false;
-    let scrollTimeout;
-    
-    function handleScroll() {
-        const scrollY = window.scrollY;
-        const windowHeight = window.innerHeight;
-        const documentHeight = document.documentElement.scrollHeight;
-        
-        // Show button after scrolling 200px or when near bottom
-        const shouldShow = scrollY > 200 || (scrollY + windowHeight) > (documentHeight - 100);
-        
-        if (shouldShow && !isVisible) {
-            floatingBtn.classList.add('show');
-            isVisible = true;
-        } else if (!shouldShow && isVisible) {
-            floatingBtn.classList.remove('show');
-            isVisible = false;
-        }
-        
-        // Clear existing timeout
-        clearTimeout(scrollTimeout);
-        
-        // Hide button after 3 seconds of no scrolling (mobile optimization)
-        scrollTimeout = setTimeout(() => {
-            if (isVisible && scrollY > 200) {
-                floatingBtn.classList.remove('show');
-                isVisible = false;
-            }
-        }, 3000);
-    }
-    
-    // Throttled scroll handler for better performance
-    let ticking = false;
-    function requestTick() {
-        if (!ticking) {
-            requestAnimationFrame(handleScroll);
-            ticking = true;
-        }
-    }
-    
-    function onScroll() {
-        ticking = false;
-        requestTick();
-    }
-    
-    // Add scroll listener
-    window.addEventListener('scroll', onScroll, { passive: true });
-    
-    // Show button immediately on mobile if user has scrolled
-    if (window.innerWidth <= 768 && window.scrollY > 100) {
-        floatingBtn.classList.add('show');
-        isVisible = true;
-    }
+    // Show button immediately - no scroll logic needed
+    floatingBtn.style.display = 'block';
 }
 
 // ===== INITIALIZATION COMPLETE =====
