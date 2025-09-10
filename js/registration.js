@@ -22,7 +22,7 @@ function initEventSelection() {
         sept14: {
             title: 'September 14, 2025 - Rego Park, NY',
             formspreeUrl: 'https://formspree.io/f/mwpqzrwe',
-            zelleEmail: 'csuhtkd@gmail.com'
+            zelleEmail: 'jwstkd@aol.com'
         },
         sept27: {
             title: 'September 27, 2025 - Bakersfield, CA',
@@ -47,6 +47,12 @@ function initEventSelection() {
 
         // Update form action
         registrationFormElement.action = event.formspreeUrl;
+
+        // Update Zelle email in payment details
+        const zelleText = document.querySelector('.payment-zelle .payment-text');
+        if (zelleText) {
+            zelleText.innerHTML = `Zelle: <strong>${event.zelleEmail}</strong>`;
+        }
 
         // Show registration form
         registrationFormSection.style.display = 'block';
