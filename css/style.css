@@ -1926,10 +1926,31 @@ section[id] {
 }
 
 .mobile-poster-cta {
-    margin-top: 0.5rem;
+    margin-top: 0.75rem;
     width: 100%;
     min-height: 48px;
     border-radius: 10px;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 180, 216, 0.2);
+}
+
+.mobile-poster-cta:hover {
+    background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(0, 180, 216, 0.3);
+}
+
+.mobile-poster-cta i {
+    font-size: 0.9rem;
 }
 
 /* Desktop refinements for better fit */
@@ -1947,6 +1968,13 @@ section[id] {
         transform: translateY(-6px);
         box-shadow: 0 14px 30px rgba(0,0,0,.35), 0 0 0 1px rgba(255,255,255,0.08) inset;
         border-color: rgba(255,255,255,0.18);
+        text-decoration: none;
+    }
+    
+    .mobile-poster-card:hover .mobile-poster-cta {
+        background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 180, 216, 0.4);
     }
 
     .mobile-poster-card:hover .mobile-poster-media img {
@@ -4106,41 +4134,55 @@ section[id] {
     bottom: 20px;
     right: 20px;
     z-index: 1000;
-    opacity: 0;
-    transform: translateY(100px);
-    transition: all 0.3s ease;
-}
-
-.floating-register-btn.show {
     opacity: 1;
     transform: translateY(0);
+    transition: all 0.3s ease;
 }
 
 .register-link {
     display: flex;
     align-items: center;
-    gap: 8px;
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    gap: 10px;
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
     color: var(--white);
     text-decoration: none;
-    padding: 12px 20px;
+    padding: 16px 24px;
     border-radius: 50px;
-    font-weight: 600;
-    font-size: 1rem;
-    box-shadow: 0 4px 20px rgba(0, 180, 216, 0.3);
+    font-weight: 700;
+    font-size: 1.1rem;
+    box-shadow: 0 6px 30px rgba(255, 107, 53, 0.4);
     transition: all 0.3s ease;
-    min-width: 120px;
+    min-width: 140px;
     justify-content: center;
+    animation: pulseGlow 2s ease-in-out infinite;
+    border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .register-link:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 25px rgba(0, 180, 216, 0.4);
-    background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 35px rgba(255, 107, 53, 0.6);
+    background: linear-gradient(135deg, #ff5722, #ff9800);
+    animation: none;
 }
 
 .register-link i {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+}
+
+/* Pulsing animation */
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 0 6px 30px rgba(255, 107, 53, 0.4);
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0 8px 40px rgba(255, 107, 53, 0.6);
+        transform: scale(1.02);
+    }
+    100% {
+        box-shadow: 0 6px 30px rgba(255, 107, 53, 0.4);
+        transform: scale(1);
+    }
 }
 
 /* Mobile optimizations */
@@ -4151,14 +4193,15 @@ section[id] {
     }
     
     .register-link {
-        padding: 14px 18px;
-        font-size: 0.95rem;
-        min-width: 110px;
-        gap: 6px;
+        padding: 18px 22px;
+        font-size: 1rem;
+        min-width: 130px;
+        gap: 8px;
+        font-weight: 800;
     }
     
     .register-link i {
-        font-size: 1rem;
+        font-size: 1.3rem;
     }
 }
 
@@ -4169,22 +4212,18 @@ section[id] {
     }
     
     .register-link {
-        padding: 12px 16px;
-        font-size: 0.9rem;
-        min-width: 100px;
-        gap: 5px;
+        padding: 16px 20px;
+        font-size: 0.95rem;
+        min-width: 120px;
+        gap: 6px;
+        font-weight: 800;
     }
     
     .btn-text {
-        display: none;
-    }
-    
-    .register-link {
-        min-width: 50px;
-        justify-content: center;
+        display: block;
     }
     
     .register-link i {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
     }
 } 
