@@ -1880,8 +1880,15 @@ section[id] {
 .mobile-poster-media {
     position: relative;
     width: 100%;
-    aspect-ratio: 16 / 9;
     background: #000;
+    overflow: hidden;
+    /* iOS Safari fixes */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    /* Let the poster determine the height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .mobile-poster-media::before {
@@ -1910,11 +1917,17 @@ section[id] {
 }
 
 .mobile-poster-media img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    max-width: 100%;
+    height: auto;
     display: block;
     transition: transform .35s ease;
+    /* iOS Safari fixes */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    /* Let the image determine its own size */
+    object-fit: contain;
 }
 
 .mobile-poster-info {
@@ -2733,6 +2746,12 @@ section[id] {
     /* Mobile scroll behavior */
     html {
         scroll-behavior: smooth;
+    }
+    
+    /* Let posters be their natural size on mobile */
+    .mobile-poster-media img {
+        max-width: 100%;
+        height: auto;
     }
     
     /* Mobile touch improvements */
