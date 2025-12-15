@@ -33,6 +33,16 @@ function initEventSelection() {
             title: 'September 28, 2025 - Chatsworth, CA',
             formspreeUrl: 'https://formspree.io/f/mjkejzey',
             zelleEmail: 'csuhtkd@gmail.com'
+        },
+        feb7: {
+            title: 'February 7, 2026 - Poomsae Seminar - Westborough, MA',
+            formspreeUrl: 'https://formspree.io/f/xwpgjlqa',
+            zelleEmail: 'csuhtkd@gmail.com'
+        },
+        feb8: {
+            title: 'February 8, 2026 - Sparring Seminar - Westborough, MA',
+            formspreeUrl: 'https://formspree.io/f/xrbnvplj',
+            zelleEmail: 'csuhtkd@gmail.com'
         }
     };
 
