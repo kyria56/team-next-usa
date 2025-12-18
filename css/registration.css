@@ -503,3 +503,61 @@
         padding: 1.25rem;
     }
 }
+
+/* Past Events Section */
+.past-events-section {
+    padding: 3rem 0;
+    background: var(--dark);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.past-events-section .section-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.past-events-section .section-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    opacity: 0.8;
+}
+
+.past-events-section .section-subtitle {
+    font-size: 1rem;
+    color: var(--text-muted);
+    opacity: 0.7;
+}
+
+.past-events-cards {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.past-event-card {
+    opacity: 0.75;
+    filter: grayscale(20%);
+    transition: all 0.3s ease;
+}
+
+.past-event-card:hover {
+    opacity: 0.9;
+    filter: grayscale(0%);
+    transform: translateY(-4px);
+}
+
+.past-event-card .event-poster::after {
+    opacity: 0.5;
+}
+
+@media (max-width: 768px) {
+    .past-events-section {
+        padding: 2rem 0;
+    }
+    
+    .past-events-section .section-title {
+        font-size: 1.75rem;
+    }
+}
