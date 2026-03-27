@@ -43,6 +43,12 @@ function initEventSelection() {
             title: 'February 8, 2026 - Sparring Seminar - Westborough, MA',
             formspreeUrl: 'https://formspree.io/f/xrbnvplj',
             zelleEmail: 'csuhtkd@gmail.com'
+        },
+        latest: {
+            title: 'May 3, 2026 - Latest Event - Villas Taekwondo, California',
+            formspreeUrl: 'https://formspree.io/f/mvzvglob',
+            zelleEmail: 'csuhtkd@gmail.com',
+            zellePhone: '347-886-3305'
         }
     };
 
@@ -60,8 +66,12 @@ function initEventSelection() {
 
         // Update Zelle email in payment details
         const zelleText = document.querySelector('.payment-zelle .payment-text');
-        if (zelleText) {
-            zelleText.innerHTML = `Zelle: <strong>${event.zelleEmail}</strong>`;
+        if (zelleText && event.zelleEmail) {
+            if (event.zellePhone) {
+                zelleText.innerHTML = `Zelle: <strong>${event.zelleEmail}</strong> or <strong>${event.zellePhone}</strong>`;
+            } else {
+                zelleText.innerHTML = `Zelle: <strong>${event.zelleEmail}</strong>`;
+            }
         }
 
         // Show registration form
@@ -196,12 +206,25 @@ function initFormValidation() {
             alert('Please fill in all required fields.');
             return;
         }
-        
-        // Show loading state
+
+        // Grab submit button early so we can safely restore it on early returns.
         const submitBtn = form.querySelector('.btn-submit');
-        const originalText = submitBtn.innerHTML;
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
-        submitBtn.disabled = true;
+        const originalText = submitBtn ? submitBtn.innerHTML : '';
+        
+        if (!form.action) {
+            alert('Registration is not configured yet for this event (missing Formspree URL). Please try again later.');
+            if (submitBtn) {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }
+            return;
+        }
+
+        // Show loading state
+        if (submitBtn) {
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+            submitBtn.disabled = true;
+        }
         
         // Submit form
         const formData = new FormData(form);
