@@ -220,6 +220,10 @@
     margin-bottom: 1.5rem;
 }
 
+.form-row:has(> .form-group:only-child) {
+    grid-template-columns: 1fr;
+}
+
 .form-row:last-child {
     margin-bottom: 0;
 }
