@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initEventSelection();
     initPaymentDetails();
     initCampShirtToggle();
+    initTermsPanel();
     initFormValidation();
 });
 
@@ -178,6 +179,19 @@ function initCampShirtToggle() {
     
     checkbox.addEventListener('change', updateShirtState);
     updateShirtState();
+}
+
+// ===== TERMS PANEL =====
+function initTermsPanel() {
+    const toggleBtn = document.getElementById('termsToggleBtn');
+    const panel = document.getElementById('termsContentPanel');
+    if (!toggleBtn || !panel) return;
+
+    toggleBtn.addEventListener('click', function() {
+        const isOpen = panel.style.display === 'block';
+        panel.style.display = isOpen ? 'none' : 'block';
+        toggleBtn.setAttribute('aria-expanded', String(!isOpen));
+    });
 }
 
 // ===== FORM VALIDATION =====
