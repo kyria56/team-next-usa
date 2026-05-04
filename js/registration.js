@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initPaymentDetails();
     initCampShirtToggle();
     initTermsPanel();
+    initMinorConsentRequirements();
     initFormValidation();
 });
 
@@ -192,6 +193,34 @@ function initTermsPanel() {
         panel.style.display = isOpen ? 'none' : 'block';
         toggleBtn.setAttribute('aria-expanded', String(!isOpen));
     });
+}
+
+// ===== MINOR CONSENT LOGIC =====
+function initMinorConsentRequirements() {
+    const ageInput = document.getElementById('age');
+    const guardianName = document.getElementById('parentGuardianName');
+    const guardianSignature = document.getElementById('parentGuardianSignature');
+    const guardianDate = document.getElementById('parentGuardianSignatureDate');
+    const consentNote = document.querySelector('.minor-consent-note');
+
+    if (!ageInput || !guardianName || !guardianSignature || !guardianDate) return;
+
+    function updateMinorRequirements() {
+        const age = Number(ageInput.value);
+        const isMinor = Number.isFinite(age) && age > 0 && age < 18;
+
+        guardianName.required = isMinor;
+        guardianSignature.required = isMinor;
+        guardianDate.required = isMinor;
+
+        if (consentNote) {
+            consentNote.style.color = isMinor ? '#ff6b35' : '';
+        }
+    }
+
+    ageInput.addEventListener('input', updateMinorRequirements);
+    ageInput.addEventListener('change', updateMinorRequirements);
+    updateMinorRequirements();
 }
 
 // ===== FORM VALIDATION =====
