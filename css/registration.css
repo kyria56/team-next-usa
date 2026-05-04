@@ -420,6 +420,12 @@
     color: var(--primary);
 }
 
+.minor-consent-note {
+    margin: 0.75rem 0 1rem;
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
 /* Submit Button */
 .btn-submit {
     width: 100%;
