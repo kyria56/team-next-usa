@@ -284,6 +284,54 @@
                     </div>
                 </div>
 
+                <!-- Signature and Guardian Consent -->
+                <div class="form-section" id="signatureConsentSection">
+                    <h3>Signature and Guardian Consent</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="participantNamePrint">Participant Name (Print)</label>
+                            <input type="text" id="participantNamePrint" name="participantNamePrint" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="participantSignature">Participant Signature</label>
+                            <input type="text" id="participantSignature" name="participantSignature" placeholder="Type full name as electronic signature" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="participantSignatureDate">Date</label>
+                            <input type="date" id="participantSignatureDate" name="participantSignatureDate" required>
+                        </div>
+                    </div>
+
+                    <p class="minor-consent-note">
+                        If participant is under 18, parent/guardian fields below are required.
+                    </p>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="parentGuardianName">Parent/Guardian Name</label>
+                            <input type="text" id="parentGuardianName" name="parentGuardianName">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="parentGuardianSignature">Parent/Guardian Signature</label>
+                            <input type="text" id="parentGuardianSignature" name="parentGuardianSignature" placeholder="Type full name as electronic signature">
+                        </div>
+                        <div class="form-group">
+                            <label for="parentGuardianSignatureDate">Date</label>
+                            <input type="date" id="parentGuardianSignatureDate" name="parentGuardianSignatureDate">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="emergencyContactPhone">Emergency Contact Phone</label>
+                            <input type="tel" id="emergencyContactPhone" name="emergencyContactPhone" required>
+                        </div>
+                    </div>
+                    <p class="terms-note">Signature is by typed agreement and form submission.</p>
+                </div>
+
                 <!-- Submit Button -->
                 <div class="form-section">
                     <button type="submit" class="btn btn-primary btn-submit">
