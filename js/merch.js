@@ -108,9 +108,12 @@ function initPaymentDetails() {
 function initShippingCalculation() {
     const shippingCheckbox = document.getElementById('merchShipping');
     const qtyInput = document.getElementById('merchQty');
-    const totalPriceDisplay = document.getElementById('totalPriceDisplay');
-    
-    if (!shippingCheckbox || !qtyInput || !totalPriceDisplay) return;
+    const totalDisplays = [
+        document.getElementById('merchFormTotal'),
+        document.getElementById('totalPriceDisplay')
+    ].filter(Boolean);
+
+    if (!shippingCheckbox || !qtyInput || totalDisplays.length === 0) return;
     
     const basePrice = 45;
     
@@ -133,7 +136,9 @@ function initShippingCalculation() {
             priceText = `$${subtotal} + $${shippingFee} shipping = $${total} total`;
         }
         
-        totalPriceDisplay.textContent = priceText;
+        totalDisplays.forEach(function (el) {
+            el.textContent = priceText;
+        });
     }
     
     shippingCheckbox.addEventListener('change', updatePrice);
