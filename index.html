@@ -41,6 +41,7 @@
             <li><a href="#schedule">Schedule</a></li>
             <li><a href="past-events.html">Past Events</a></li>
             <li><a href="registration.html">Registration</a></li>
+            <li><a href="merch.html">Merch</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
         <div class="nav-social">
@@ -50,10 +51,10 @@
         </div>
     </nav>
 
-    <!-- Mobile Top Events (Posters) -->
-    <section class="mobile-top-events" aria-label="Choose Your Session">
+    <!-- Mobile Top Events (Posters) + Merch -->
+    <section id="merch-showcase" class="mobile-top-events" aria-label="Featured event and team merch">
         <div class="container">
-            <div class="mobile-events-list">
+            <div class="mobile-events-list mobile-events-list--dual">
                 <a href="registration.html?event=latest" class="mobile-poster-card" data-event="latest">
                     <div class="mobile-poster-media">
                         <img src="Latest%20Event.png" alt="May 3, 2026 - Latest Event" class="poster-image" loading="lazy">
@@ -71,6 +72,27 @@
                         <div class="mobile-poster-cta">
                             <span>Register Now</span>
                             <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="merch.html" class="mobile-poster-card mobile-poster-card--merch">
+                    <div class="mobile-poster-media">
+                        <img src="merch/jersey_poster.jpeg" alt="Team Next USA official jersey" class="poster-image" loading="lazy">
+                    </div>
+                    <div class="mobile-poster-info">
+                        <div class="mobile-poster-meta">
+                            <span class="mobile-poster-date">Official team jersey</span>
+                            <span class="mobile-poster-time">One design · limited drop</span>
+                            <span class="mobile-poster-venue">Team Next USA</span>
+                            <span class="mobile-poster-location">Order online</span>
+                        </div>
+                        <div style="color: var(--accent); font-weight: 800; font-size: 0.95rem; text-shadow: 0 0 10px rgba(255, 210, 63, 0.25);">
+                            Shop merch
+                        </div>
+                        <div class="mobile-poster-cta mobile-poster-cta--merch">
+                            <span>View jersey &amp; order</span>
+                            <i class="fas fa-tshirt"></i>
                         </div>
                     </div>
                 </a>
