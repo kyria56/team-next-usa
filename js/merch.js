@@ -115,7 +115,7 @@ function initShippingCalculation() {
 
     if (!shippingCheckbox || !qtyInput || totalDisplays.length === 0) return;
     
-    const basePrice = 45;
+    const basePrice = 30;
     
     function updatePrice() {
         const qty = parseInt(qtyInput.value) || 1;
