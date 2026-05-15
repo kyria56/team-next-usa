@@ -1,0 +1,360 @@
+/* TEAM NEXT USA — Jersey / Merch page */
+
+.merch-page {
+    padding-top: 5.5rem;
+    min-height: 100vh;
+    background: var(--dark);
+}
+
+.merch-hero {
+    position: relative;
+    padding: 2rem 0 2.5rem;
+    overflow: hidden;
+}
+
+.merch-hero-bg {
+    position: absolute;
+    inset: 0;
+    background: url('../merch/event_background.jpg') center / cover no-repeat;
+    opacity: 0.22;
+    pointer-events: none;
+}
+
+.merch-hero-inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: 2rem;
+    align-items: center;
+    grid-template-columns: 1fr;
+}
+
+.merch-hero-copy h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    font-weight: 800;
+    margin-bottom: 0.75rem;
+    background: linear-gradient(135deg, var(--white) 0%, var(--primary) 45%, var(--secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.merch-hero-copy p {
+    color: var(--white-off);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    max-width: 36rem;
+}
+
+.merch-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    background: rgba(0, 180, 216, 0.15);
+    border: 1px solid rgba(0, 180, 216, 0.35);
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.merch-poster-frame {
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.45);
+    background: #000;
+}
+
+.merch-poster-frame img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.merch-gallery {
+    padding: 2rem 0 3rem;
+    background: var(--dark-light);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.merch-gallery h2 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--primary);
+    font-size: 1.35rem;
+    margin-bottom: 1.25rem;
+    text-align: center;
+}
+
+.merch-gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.merch-gallery-item {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--dark-lighter);
+}
+
+.merch-gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.merch-gallery-caption {
+    padding: 0.65rem 0.85rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--white);
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.merch-order {
+    padding: 3rem 0 5rem;
+}
+
+.merch-order-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr;
+    max-width: 920px;
+    margin: 0 auto;
+}
+
+.merch-order-card {
+    background: var(--dark-lighter);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 2rem;
+}
+
+.merch-order-card h2 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--white);
+    font-size: 1.35rem;
+    margin-bottom: 0.5rem;
+}
+
+.merch-order-card .merch-price-line {
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.merch-form .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.merch-form .form-row:has(> .form-group:only-child) {
+    grid-template-columns: 1fr;
+}
+
+.merch-form .form-section {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.merch-form .form-section h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--primary);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.merch-form .form-group label {
+    display: block;
+    color: var(--white);
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 0.4rem;
+}
+
+.merch-form .form-group.checkbox label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.merch-form .checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    position: relative;
+}
+
+.merch-form .checkbox-label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.merch-form .checkmark {
+    display: none;
+}
+
+.merch-form .payment-details {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: rgba(0, 180, 216, 0.05);
+    border: 1px solid rgba(0, 180, 216, 0.2);
+    border-radius: 10px;
+}
+
+.merch-form .payment-option {
+    display: none;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+}
+
+.merch-form .payment-option[data-method="venmo"],
+.merch-form .payment-option[data-method="zelle"],
+.merch-form .payment-option[data-method="cash"] {
+    display: none;
+}
+
+.merch-form .payment-option.active {
+    display: flex;
+}
+
+.merch-form .payment-option i {
+    font-size: 1.2rem;
+    color: var(--accent);
+}
+
+.merch-form .payment-text {
+    flex: 1;
+    color: var(--white-off);
+    font-size: 0.9rem;
+}
+
+.merch-form .payment-text strong {
+    color: var(--accent);
+}
+
+.merch-form .payment-link {
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.4rem 0.8rem;
+    background: rgba(0, 180, 216, 0.1);
+    border: 1px solid rgba(0, 180, 216, 0.3);
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.merch-form .payment-link:hover {
+    background: rgba(0, 180, 216, 0.2);
+    border-color: var(--primary);
+}
+
+.merch-form .payment-note {
+    margin-top: 0.75rem;
+    padding: 0.75rem;
+    background: rgba(255, 210, 63, 0.05);
+    border-left: 3px solid var(--accent);
+    color: var(--white-off);
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.merch-form .form-group input,
+.merch-form .form-group select,
+.merch-form .form-group textarea {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--white);
+    font-size: 1rem;
+    min-height: 48px;
+}
+
+.merch-form .form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.merch-form .form-group input:focus,
+.merch-form .form-group select:focus,
+.merch-form .form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.12);
+}
+
+.merch-form-note {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-top: 1rem;
+    line-height: 1.5;
+}
+
+.merch-submit {
+    width: 100%;
+    margin-top: 1.25rem;
+    padding: 1.1rem 1.5rem;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    cursor: pointer;
+    background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ff4757 100%);
+    color: var(--white);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.merch-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(255, 107, 53, 0.35);
+}
+
+@media (min-width: 900px) {
+    .merch-hero-inner {
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 3rem;
+    }
+
+    .merch-order-grid {
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+        max-width: 1100px;
+    }
+}
+
+@media (max-width: 768px) {
+    .merch-gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .merch-form .form-row {
+        grid-template-columns: 1fr;
+    }
+}
