@@ -914,7 +914,7 @@ function initMobileCTA() {
     if (!isMobile) return;
 
     const cta = document.createElement('a');
-    cta.href = 'registration.html?event=latest';
+    cta.href = 'registration.html?event=june14';
     cta.className = 'mobile-cta';
     cta.innerHTML = '<i class="fas fa-clipboard-list" style="margin-right:10px"></i> Register Now';
     document.body.appendChild(cta);
