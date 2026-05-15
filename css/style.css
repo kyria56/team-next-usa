@@ -2972,11 +2972,11 @@ section[id] {
         height: auto;
     }
     
-    /* Mobile touch improvements */
+    /* Mobile touch improvements (exclude checkboxes/radios — appearance:none breaks them on iOS) */
     .btn,
     .event-option label,
     .nav-menu a,
-    input,
+    input:not([type="checkbox"]):not([type="radio"]),
     select,
     textarea,
     button {
@@ -2985,6 +2985,13 @@ section[id] {
         /* iOS Safari form fixes */
         -webkit-appearance: none;
         border-radius: 0;
+    }
+
+    input[type="checkbox"],
+    input[type="radio"] {
+        -webkit-appearance: auto;
+        appearance: auto;
+        touch-action: manipulation;
     }
     
     /* iOS Safari input zoom prevention */
