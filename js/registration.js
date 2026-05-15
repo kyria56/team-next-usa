@@ -21,34 +21,9 @@ function initEventSelection() {
     const registrationFormElement = document.getElementById('registrationFormElement');
 
     const eventData = {
-        sept14: {
-            title: 'September 14, 2025 - Rego Park, NY',
-            formspreeUrl: 'https://formspree.io/f/mwpqzrwe',
-            zelleEmail: 'jwstkd@aol.com'
-        },
-        sept27: {
-            title: 'September 27, 2025 - Bakersfield, CA',
-            formspreeUrl: 'https://formspree.io/f/xdklyjlg',
-            zelleEmail: 'csuhtkd@gmail.com'
-        },
-        sept28: {
-            title: 'September 28, 2025 - Chatsworth, CA',
-            formspreeUrl: 'https://formspree.io/f/mjkejzey',
-            zelleEmail: 'csuhtkd@gmail.com'
-        },
-        feb7: {
-            title: 'February 7, 2026 - Poomsae Seminar - Westborough, MA',
-            formspreeUrl: 'https://formspree.io/f/xwpgjlqa',
-            zelleEmail: 'csuhtkd@gmail.com'
-        },
-        feb8: {
-            title: 'February 8, 2026 - Sparring Seminar - Westborough, MA',
-            formspreeUrl: 'https://formspree.io/f/xrbnvplj',
-            zelleEmail: 'csuhtkd@gmail.com'
-        },
-        latest: {
-            title: 'May 3, 2026 - Latest Event - Villas Taekwondo, California',
-            formspreeUrl: 'https://formspree.io/f/mvzvglob',
+        june14: {
+            title: 'June 14, 2026 - TEAM NEXT USA - High Performance Bayside',
+            formspreeUrl: 'https://formspree.io/f/xdabraqn',
             zelleEmail: 'csuhtkd@gmail.com',
             zellePhone: '347-886-3305'
         }
@@ -129,6 +104,8 @@ function initEventSelection() {
     const eventFromUrl = urlParams.get('event');
     if (eventFromUrl && eventData[eventFromUrl]) {
         selectEvent(eventFromUrl);
+    } else {
+        selectEvent('june14');
     }
 }
 
