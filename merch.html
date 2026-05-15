@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Jersey Shop — TEAM NEXT USA</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/merch.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="merch-page">
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-text">
+                    <span class="logo-main">TEAM NEXT</span>
+                    <span class="logo-sub">USA</span>
+                </div>
+                <h1 class="nav-title">TEAM NEXT USA</h1>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#about" class="nav-link">About</a>
+                <a href="index.html#schedule" class="nav-link">Schedule</a>
+                <a href="past-events.html" class="nav-link">Past Events</a>
+                <a href="registration.html" class="nav-link">Registration</a>
+                <a href="merch.html" class="nav-link active">Merch</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-social">
+                <a href="https://instagram.com/team_nextusa" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
+                <a href="#" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="merch-hero" aria-label="Team jersey">
+        <div class="merch-hero-bg" aria-hidden="true"></div>
+        <div class="container merch-hero-inner">
+            <div class="merch-hero-copy">
+                <h1>Official Team Jersey</h1>
+                <p>One design. Premium look. Rep Team Next USA on and off the mat. Order below — we’ll confirm details after submission.</p>
+                <div class="merch-badge">
+                    <i class="fas fa-tshirt"></i>
+                    <span>Limited drop · one jersey style</span>
+                </div>
+            </div>
+            <div class="merch-poster-frame">
+                <img src="merch/jersey_poster.jpeg" alt="Team Next USA jersey poster" width="800" height="1000" loading="eager">
+            </div>
+        </div>
+    </section>
+
+    <section class="merch-gallery" aria-label="Jersey photos">
+        <div class="container">
+            <h2>Front &amp; back</h2>
+            <div class="merch-gallery-grid">
+                <figure class="merch-gallery-item">
+                    <img src="merch/shirt_front.jpg" alt="Jersey front" loading="lazy">
+                    <figcaption class="merch-gallery-caption">Front</figcaption>
+                </figure>
+                <figure class="merch-gallery-item">
+                    <img src="merch/shirt_back.jpg" alt="Jersey back" loading="lazy">
+                    <figcaption class="merch-gallery-caption">Back</figcaption>
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <section class="merch-order" id="order" aria-label="Order form">
+        <div class="container merch-order-grid">
+            <div class="merch-order-card">
+                <h2>Order your jersey</h2>
+                <p class="merch-price-line">Price: <strong>$45</strong> each</p>
+                <p style="color: var(--white-off); font-size: 0.95rem; line-height: 1.55;">
+                    Select your size and quantity below. Shipping is optional (+$5).
+                </p>
+                <div id="totalPriceDisplay" style="margin-top: 1rem; font-size: 1.1rem; color: var(--accent); font-weight: 700;"></div>
+            </div>
+            <div class="merch-order-card">
+                <form class="merch-form" id="merchOrderForm" action="" method="POST">
+                    <input type="hidden" name="_subject" value="Team Next USA — Jersey order">
+                    <input type="hidden" name="_next" value="thank-you.html">
+                    <input type="hidden" name="product" value="Team Next USA Official Jersey">
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="merchFullName">Full name</label>
+                            <input type="text" id="merchFullName" name="fullName" required autocomplete="name">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="merchEmail">Email</label>
+                            <input type="email" id="merchEmail" name="email" required autocomplete="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="merchPhone">Phone</label>
+                            <input type="tel" id="merchPhone" name="phone" required autocomplete="tel">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="merchSchool">School Name</label>
+                            <input type="text" id="merchSchool" name="school" placeholder="Enter your school name">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="merchMaster">Master Name</label>
+                            <input type="text" id="merchMaster" name="master" placeholder="Enter your master's name">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="merchAddress">Address</label>
+                            <input type="text" id="merchAddress" name="address" placeholder="Street address, City, State, ZIP">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="merchSize">Size</label>
+                            <select id="merchSize" name="size" required>
+                                <option value="">Select size</option>
+                                <option value="Youth">Youth</option>
+                                <option value="XS">XS</option>
+                                <option value="S">S</option>
+                                <option value="M">M</option>
+                                <option value="L">L</option>
+                                <option value="XL">XL</option>
+                                <option value="XXL">XXL</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="merchQty">Quantity</label>
+                            <input type="number" id="merchQty" name="quantity" min="1" max="99" value="1" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group checkbox">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="merchShipping" name="shipping">
+                                <span class="checkmark"></span>
+                                Add shipping (+$5)
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="merchNotes">Shipping / pickup notes (optional)</label>
+                            <textarea id="merchNotes" name="notes" rows="3" placeholder="Pickup at event, ship to address, etc."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Payment Method -->
+                    <div class="form-section">
+                        <h3>Payment Method</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="merchPaymentMethod">Payment Method</label>
+                                <select id="merchPaymentMethod" name="paymentMethod" required>
+                                    <option value="">Select Payment Method</option>
+                                    <option value="venmo">Venmo</option>
+                                    <option value="zelle">Zelle</option>
+                                    <option value="cash">Cash (On-site)</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <!-- Dynamic payment details -->
+                        <div class="payment-details" id="merchPaymentDetails" style="display: none;">
+                            <div class="payment-option payment-venmo" data-method="venmo">
+                                <i class="fab fa-venmo"></i>
+                                <span class="payment-text">Venmo: <strong>christian-hpma</strong></span>
+                                <a class="payment-link" href="https://venmo.com/christian-hpma" target="_blank" rel="noopener">Open Venmo</a>
+                            </div>
+                            <div class="payment-option payment-zelle" data-method="zelle">
+                                <i class="fas fa-money-check-alt"></i>
+                                <span class="payment-text">Zelle: <strong>csuhtkd@gmail.com</strong> or <strong>347-886-3305</strong></span>
+                            </div>
+                            <div class="payment-option payment-cash" data-method="cash">
+                                <i class="fas fa-hand-holding-usd"></i>
+                                <span class="payment-text">Cash: Pay on-site at check-in</span>
+                            </div>
+                            <div class="payment-note">
+                                Please include the attendee's full name in the payment memo. After completing payment, submit this form to finalize your order.
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="merch-submit">
+                        <span>Place order</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <p class="merch-form-note">Payment instructions can be emailed after you receive the order — or add Venmo/Zelle copy here later to match registration.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-main">TEAM NEXT</span>
+                    <span class="logo-sub">USA</span>
+                </div>
+                <p class="footer-text">National Excellence in Taekwondo</p>
+                <div class="footer-social">
+                    <a href="https://instagram.com/team_nextusa" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+                    <a href="#" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
+                    <a href="#" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/merch.js"></script>
+</body>
+</html>
