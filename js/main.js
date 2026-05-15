@@ -747,6 +747,9 @@ function initMobilePosterCards() {
             if (e.target.closest('.mobile-poster-cta')) return;
 
             const eventId = this.getAttribute('data-event');
+            // Homepage merch card (no data-event): let the <a href> handle navigation only
+            if (!eventId) return;
+
             const registrationSection = document.getElementById('registration');
             if (registrationSection) {
                 const offsetTop = registrationSection.offsetTop - 80;
@@ -911,7 +914,7 @@ function initMobileCTA() {
     if (!isMobile) return;
 
     const cta = document.createElement('a');
-    cta.href = '#registration';
+    cta.href = 'registration.html?event=latest';
     cta.className = 'mobile-cta';
     cta.innerHTML = '<i class="fas fa-clipboard-list" style="margin-right:10px"></i> Register Now';
     document.body.appendChild(cta);
