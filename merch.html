@@ -140,14 +140,21 @@
                             <input type="number" id="merchQty" name="quantity" min="1" max="99" value="1" required>
                         </div>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group checkbox">
-                            <label class="checkbox-label">
-                                <input type="checkbox" id="merchShipping" name="shipping">
-                                <span class="checkmark"></span>
-                                Add shipping (+$5)
-                            </label>
-                        </div>
+                    <div id="merchFormTotal" class="merch-form-total" aria-live="polite"></div>
+
+                    <div class="merch-shipping-wrap">
+                        <p class="merch-shipping-heading">Delivery</p>
+                        <label class="merch-shipping-toggle" for="merchShipping">
+                            <input type="checkbox" id="merchShipping" name="shipping" value="yes">
+                            <span class="merch-shipping-toggle-indicator" aria-hidden="true">
+                                <i class="fas fa-check"></i>
+                            </span>
+                            <span class="merch-shipping-toggle-copy">
+                                <span class="merch-shipping-toggle-title">Add shipping</span>
+                                <span class="merch-shipping-toggle-detail">Ship to the address above · flat rate</span>
+                            </span>
+                            <span class="merch-shipping-toggle-price">+$5</span>
+                        </label>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
